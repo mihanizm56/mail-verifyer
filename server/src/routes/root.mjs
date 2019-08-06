@@ -1,8 +1,12 @@
 import express from "express";
-import apiCtrl from "../controllers/api/api.mjs";
+import usersCtrl from "../controllers/users/controller.mjs";
 
 const router = express.Router();
 
-router.get("/api", apiCtrl.get);
+// route to put new user in db
+router.put("/user", usersCtrl.put);
+
+// route to verify user with token
+router.get("/user/:token", usersCtrl.get);
 
 export default router;
