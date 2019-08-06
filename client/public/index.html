@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <title>JWT Auth</title>
+    <style>
+      #root{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .loader{
+        height: 100px;
+        width: 100px;
+        background-image: url(./images/icon-loading.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        animation: circleFull 2.2s linear infinite;
+      }
+
+      @keyframes circleFull {
+        from {
+            transform: rotate3d(0, 0, 1, -180deg);
+        }
+        to {
+            transform: rotate3d(0, 0, 1, 180deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+    <script>
+      const rootContainer = document.getElementById('root')
+      const container = document.createElement('DIV')
+      container.className = 'loader'
+      rootContainer.appendChild(container)
+    </script>
+  </body>
+</html>

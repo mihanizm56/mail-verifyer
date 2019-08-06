@@ -1,0 +1,2 @@
+.global-wrapper,.main-wrapper{width:100%;height:100vh;display:flex;flex-direction:column}.global-wrapper{position:relative;align-items:center;justify-content:flex-start;box-sizing:border-box;overflow:hidden}html{height:100%}body,html{margin:0;padding:0;width:100%}body{align-items:center}#root,body{display:flex;flex-direction:column}#root{width:100%;height:100vh;justify-content:flex-start}
+/*# sourceMappingURL=main.77e5ca81.chunk.css.map */

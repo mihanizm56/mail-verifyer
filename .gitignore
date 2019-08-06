@@ -1,0 +1,19 @@
+# dependencies
+node_modules
+package-lock.json
+/client/node_modules
+/server/node_modules
+/client/package-lock.json
+/server/package-lock.json
+
+# testing
+/coverage
+/client/coverage
+/server/coverage
+
+# production
+/client/build
+/server/build
+
+# variables
+.env
