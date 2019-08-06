@@ -1,16 +1,49 @@
 import sanitize from "mongo-sanitize";
 import { addUserInDb, getUserFromDbById, updateUserFromDb } from "../../models/users/index.mjs";
+import { sendEmail } from "../../services/emails/emails.mjs";
 
 export const put = async (req, res) => {
 	const sanitizedUsername = sanitize(req.body.username);
-	const temporary = false;
-	// const access_token = createToken(serializedUserData.id);
+	const newUserData = { username: sanitizedUsername, temporary: false };
+	try {
+		await validateUser(newUserData);
+	} catch (error) {
+		res.status(401).json({ message: "fail", error: "enter the correct data" });
+		return;
+	}
+
+	try {
+		const newUser = await addUserInDb();
+		const userToken = createToken({ username: sanitizedUsername });
+		await sendEmail({ token: userToken, username: newUser.username });
+		res.status(200).json({ message: success, error: "" });
+	} catch (error) {
+		res.status(500).json({ message: "fail", error: "internal server error" });
+		return;
+	}
 };
 
 export const get = async (req, res) => {
-	const userId = res.locals.userData.id;
-	const userData = await getUserFromDbById({ userId });
-	userData.temporary = true;
+	if (res.locals.userData.id) {
+		const userId = res.locals.userData.id;
 
-	await updateUserFromDb({ userId, userData });
+		try {
+			const userData = await getUserFromDbById({ userId });
+			userData.temporary = true;
+		} catch (error) {
+			res.status(401).json({ message: "fail", error: "user does not exists" });
+			return;
+		}
+
+		try {
+			await updateUserFromDb({ userId, userData });
+			res.status(200).json({ message: success, error: "" });
+		} catch (error) {
+			res.status(500).json({ message: "fail", error: "internal server error" });
+			return;
+		}
+	}
+
+	res.status(401).json({ message: "fail", error: "enter the correct data" });
+	return;
 };

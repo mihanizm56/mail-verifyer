@@ -10,11 +10,12 @@ const getOptions = async ({ message, email }) => ({
 	text: message.trim().slice(0, 500) + "\n" + `отправлено с <${email}>`,
 });
 
-export const sendEmail = async (token, email, callback) => {
+export const sendEmail = async ({ token, email }) => {
 	const options = await getOptions({ message, email });
 
 	try {
 		await transporter.sendMail(options);
+		console.log("mail was sent");
 	} catch (error) {
 		console.log("sendEmail error", error);
 		throw new Error(error);
