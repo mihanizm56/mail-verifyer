@@ -1,12 +1,23 @@
 <html>
 
+<head>
+    <style>
+        .link-button {
+            text-decoration: none;
+            padding: 25px 100px 25px 100px;
+            background-color: aqua;
+            color: blueviolet;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+
 <body>
-    <h1>You Node mailer is working</h1>
-    <p>
-        Your Name: {{name}}
-        <br />
-        Your Email: {{email}}
-    </p>
+    <h1>Click the button to verify your account</h1>
+    <a class="link-button" href={{link}}>
+        Click me!
+    </a>
 </body>
 
 </html>

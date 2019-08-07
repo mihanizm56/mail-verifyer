@@ -19,19 +19,20 @@ var options = {
 
 nodemailerTransport.use("compile", hbs(options));
 
-const getMailMessage = async ({ message, email, token }) => ({
+const getMailMessage = async ({ email, link }) => ({
 	from: process.env.SENDER_NAME,
 	to: email,
 	subject: config.mail.subject,
 	template: "email",
 	context: {
-		name: "test_name",
+		link,
 		email: "test_email",
 	},
 });
 
 export const sendEmail = async ({ token, email }) => {
-	const message = await getMailMessage({ message: "тестовое сообщение", email, token });
+	const link = `http://localhost:8080/user/${token}`;
+	const message = await getMailMessage({ email, link });
 
 	try {
 		await nodemailerTransport.sendMail(message);
