@@ -2,23 +2,31 @@
 
 <head>
     <style>
+        .mail {
+            min-height: 175px;
+        }
+
         .link-button {
             text-decoration: none;
-            padding: 25px 100px 25px 100px;
+            padding: 15px 70px;
             height: 200px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 46px;
             background-color: aqua;
-            color: blueviolet;
-            cursor: pointer;
+            border-radius: 10px;
         }
     </style>
 </head>
 
 
 <body>
-    <h1>Click the button to verify your account</h1>
-    <a class="link-button" href={{link}}>
-        Click me!
-    </a>
+    <div class="mail">
+        <h1>Click the button to verify your account</h1>
+        <a class="link-button" href={{link}}>
+            Click me!
+        </a>
+    </div>
+
 </body>
 
 </html>

@@ -1,12 +1,16 @@
 import nodemailer from "nodemailer";
+import dotenv from "dotenv";
 import path from "path";
 import hbs from "nodemailer-express-handlebars";
 import config from "./config.json";
+import { domain } from "../../services/variables/index.mjs";
+
+dotenv.config();
 
 const nodemailerTransport = nodemailer.createTransport(config.mail.stmp);
 const pathForTemplate = path.join(process.cwd(), "src", "services", "emails");
 
-var options = {
+const options = {
 	viewEngine: {
 		extName: ".hbs",
 		partialsDir: pathForTemplate,
@@ -31,7 +35,7 @@ const getMailMessage = async ({ email, link }) => ({
 });
 
 export const sendEmail = async ({ token, email }) => {
-	const link = `http://localhost:8080/user/${token}`;
+	const link = `${domain}/user/${token}`;
 	const message = await getMailMessage({ email, link });
 
 	try {
