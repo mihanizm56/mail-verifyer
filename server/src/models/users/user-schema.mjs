@@ -3,12 +3,10 @@ import "./model.mjs";
 
 export const UserModel = mongoose.model("User");
 
-export const getUserFromDbById = ({ userId }) => UserModel.findOne({ _id: userId });
+export const getUserFromDbByUsername = ({ username }) => UserModel.findOne({ username });
 
 export const addUserInDb = userData => {
-	const newUser = new UserModel({
-		...userData,
-	});
+	const newUser = new UserModel({ ...userData });
 
 	return newUser;
 };

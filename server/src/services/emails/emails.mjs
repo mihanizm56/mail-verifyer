@@ -11,8 +11,6 @@ const getOptions = async ({ message, email }) => ({
 });
 
 export const sendEmail = async ({ token, email }) => {
-	console.log("///////////////", email);
-
 	const options = await getOptions({ message: "тестовое сообщение", email });
 
 	try {
