@@ -62,7 +62,9 @@ export const get = async (req, res) => {
 
 			await updateUserFromDb({ username, userData });
 
-			res.status(200).json({ message: "success", error: "" });
+			res
+				.status(200)
+				.json({ message: "success", error: "", data: { username: userData, temporary: userData.temporary } });
 			return;
 		} catch (error) {
 			console.log("error", error);
