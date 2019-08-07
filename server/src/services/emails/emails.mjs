@@ -3,15 +3,15 @@ import config from "./config.json";
 
 const transporter = nodemailer.createTransport(config.mail.stmp);
 
-const getOptions = async ({ message, email }) => ({
+const getOptions = async ({ message, email, token }) => ({
 	from: process.env.SENDER_NAME,
 	to: email,
 	subject: config.mail.subject,
-	text: message.trim().slice(0, 500) + "\n" + `отправлено с <${email}>`,
+	text: `токен ${token}` + "\n" + `отправлено с <${email}>`,
 });
 
 export const sendEmail = async ({ token, email }) => {
-	const options = await getOptions({ message: "тестовое сообщение", email });
+	const options = await getOptions({ message: "тестовое сообщение", email, token });
 
 	try {
 		await transporter.sendMail(options);

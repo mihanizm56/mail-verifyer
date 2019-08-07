@@ -1,5 +1,6 @@
 import express from "express";
 import usersCtrl from "../controllers/users/controller.mjs";
+import { userTokenVerification } from "../middlewares/user-token/user-token.mjs";
 
 const router = express.Router();
 
@@ -7,6 +8,6 @@ const router = express.Router();
 router.put("/user", usersCtrl.put);
 
 // route to verify user with token
-router.get("/user/:token", usersCtrl.get);
+router.get("/user/:token", userTokenVerification, usersCtrl.get);
 
 export default router;

@@ -1,8 +1,8 @@
 import { tokenVerify } from "../../services/tokens/index.mjs";
 
-export const cookieTokenAuth = (req, res, next) =>
+export const userTokenVerification = (req, res, next) =>
 	tokenVerify(req.params.token, (error, userData) => {
-		if (!error && userData.id) {
+		if (!error && userData.username) {
 			console.log("valid cookieTokenAuth");
 
 			res.locals.userTokenData = userData;

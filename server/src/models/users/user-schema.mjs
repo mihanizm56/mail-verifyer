@@ -11,5 +11,5 @@ export const addUserInDb = userData => {
 	return newUser;
 };
 
-export const updateUserFromDb = ({ userId, userData }) =>
-	UserModel.findOneAndUpdate({ _id: userId }, { ...userData }, { overwrite: false });
+export const updateUserFromDb = ({ username, userData }) =>
+	UserModel.findOneAndUpdate({ username }, userData, { overwrite: false });
