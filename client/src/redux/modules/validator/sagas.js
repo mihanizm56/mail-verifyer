@@ -1,6 +1,6 @@
 import { call, put } from "redux-saga/effects";
 import { stopSubmit } from "redux-form";
-import { fetchValidateUserEmail } from "./actions";
+import { fetchValidateUserEmail, setUsername } from "./actions";
 import { fetchError } from "../shared/actions";
 // import {
 // 	fetchLoginRequest,

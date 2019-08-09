@@ -1,10 +1,10 @@
 import React from "react";
 
-export const UserBox = ({ username }) => {
+export const ErrorBox = ({ error }) => {
 	return (
 		<div>
 			<p>test userbox</p>
-			<p>{username}</p>
+			<p>{error}</p>
 		</div>
 	);
 };
