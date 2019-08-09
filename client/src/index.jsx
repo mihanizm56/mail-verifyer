@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { createAppStore, history } from "./redux/store";
+import { createAppStore } from "./redux/store";
+import { BrowserRouter } from "react-router-dom";
 import { App } from "./modules";
-import { ConnectedRouter } from "connected-react-router";
 import "./styles/main.css";
 import "./styles/shared.css";
 import "./styles/keyframes.css";
@@ -14,7 +14,9 @@ const store = createAppStore();
 
 ReactDOM.render(
 	<Provider store={store}>
-		<App />
+		<BrowserRouter>
+			<App />
+		</BrowserRouter>
 	</Provider>,
 	ROOT_ELEMENT
 );

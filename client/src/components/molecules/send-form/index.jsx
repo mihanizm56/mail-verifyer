@@ -1,26 +1,24 @@
-import React from "react";
-import { Formik, Field, Form, ErrorMessage, FieldArray } from "formik";
-// import { Debug } from "./Debug";
+import React, { Component } from "react";
+import { Formik, Field, Form, ErrorMessage, FieldArray, withFormik } from "formik";
 
-const initialValues = {
-	name: "test1",
-	email: "test2",
-};
+export class InnerForm extends Component {
+	componentDidUpdate(prevProps) {
+		const { error, setErrors } = this.props;
 
-export const SendForm = () => (
-	<div>
-		<Formik
-			initialValues={initialValues}
-			onSubmit={values => {
-				setTimeout(() => {
-					alert(JSON.stringify(values, null, 2));
-				}, 2000);
-			}}
-			render={({ values }) => (
+		if (error && prevProps.error !== error) {
+			setErrors({ name: "test-name-error" });
+		}
+	}
+
+	render = () => {
+		const { values } = this.props;
+
+		return (
+			<div>
 				<Form>
 					<FieldArray
 						name="email-sender"
-						render={({ insert, remove, push }) => (
+						render={() => (
 							<div>
 								<div className="col">
 									<label htmlFor="name">Name</label>
@@ -36,9 +34,22 @@ export const SendForm = () => (
 						)}
 					/>
 					<button type="submit">Validate</button>
-					{/* <Debug /> */}
 				</Form>
-			)}
-		/>
-	</div>
-);
+			</div>
+		);
+	};
+}
+
+export const SendForm = withFormik({
+	handleSubmit: (values, { props }) => {
+		setTimeout(() => {
+			props.submitFunc(values);
+		}, 2000);
+	},
+	mapPropsToValues: props => {
+		return {
+			name: "test",
+			email: "test@mail.ru",
+		};
+	},
+})(InnerForm);

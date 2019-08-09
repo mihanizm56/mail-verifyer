@@ -1,7 +1,6 @@
 import { call, put } from "redux-saga/effects";
-import { stopSubmit } from "redux-form";
 import { fetchValidateUserEmail, setUsername } from "./actions";
-import { fetchError } from "../shared/actions";
+import { setError } from "../shared/actions";
 // import {
 // 	fetchLoginRequest,
 // 	fetchAuthRequest,
@@ -48,6 +47,6 @@ import { fetchError } from "../shared/actions";
 // 			yield put(loginFailedAction());
 // 		}
 // 	} else {
-// 		yield put(fetchError());
+// 		yield put(setError());
 // 	}
 // }

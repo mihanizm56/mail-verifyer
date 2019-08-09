@@ -1,4 +1,4 @@
-import { VALIDATE_USER } from "./constants";
+import { VALIDATE_USER, SET_USERNAME } from "./constants";
 
 export const fetchValidateUserEmail = payload => ({ type: VALIDATE_USER, payload });
 

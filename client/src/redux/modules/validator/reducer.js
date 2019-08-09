@@ -1,6 +1,7 @@
 import lensPath from "ramda/src/lensPath";
 import set from "ramda/src/set";
-import { LOADING_START, LOADING_FINISH, ERROR_FETCH, SET_USERNAME } from "../shared/constants";
+import { LOADING_START, LOADING_FINISH, ERROR_FETCH } from "../shared/constants";
+import { SET_USERNAME } from "./constants";
 
 const initialState = {
 	isLoading: false,
