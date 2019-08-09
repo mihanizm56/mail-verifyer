@@ -6,7 +6,7 @@
     "dev": "cross-env-shell NODE_ENV=development nodemon --experimental-modules app.mjs",
     "prod": "cross-env-shell NODE_ENV=production node --experimental-modules app.mjs",
     "stop": "taskkill /F /IM node.exe",
-    "push": "git add . && git commit -m default -n && git push"
+    "push": "cd .. && npm run push && cd server"
   },
   "dependencies": {
     "@hapi/joi": "^15.1.0",
