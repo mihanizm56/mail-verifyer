@@ -4,9 +4,14 @@ export const getRequest = ({ endpoint }) => fetch(endpoint).then(data => data.js
 // export const ERROR_NOT_VALID_DATA = "enter the correct data";
 // export const ERROR_EXIST_USER = "user exists";
 
-const testMessage = {
+const successMessage = {
 	message: "success",
 	error: null,
+};
+
+const errorMessage = {
+	message: "",
+	error: "internal server error",
 };
 
 export const putRequest = ({ endpoint, data }) => {
@@ -21,5 +26,5 @@ export const putRequest = ({ endpoint, data }) => {
 	// 	body: JSON.stringify(data),
 	// };
 	// return fetch(endpoint, paramsObject).then(data => data.json());
-	return Promise.resolve(testMessage);
+	return Promise.resolve(errorMessage);
 };

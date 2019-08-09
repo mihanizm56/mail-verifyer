@@ -13,8 +13,8 @@ export function* sendUserEmailSaga(action) {
 	console.log("fetchReviewsRequest result", resultOfRequest);
 
 	if (error) {
-		console.log("saga request failed");
 		const getErrorText = errorCreator(error);
+		console.log("saga request failed", getErrorText);
 		yield put(setError(getErrorText));
 		yield put(fetchLoadingFinish());
 	}

@@ -1,8 +1,8 @@
 import React from "react";
-import { SendFormModule } from "../../../../modules";
+import { Sender } from "../../../../modules";
 
 export const MainPage = () => (
 	<div className="main-page">
-		<SendFormModule />
+		<Sender />
 	</div>
 );

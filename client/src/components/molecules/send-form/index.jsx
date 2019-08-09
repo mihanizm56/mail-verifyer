@@ -6,7 +6,7 @@ export class InnerForm extends Component {
 		const { error, setErrors } = this.props;
 
 		if (error && prevProps.error !== error) {
-			setErrors({ name: "test-name-error" });
+			setErrors({ name: error, email: error });
 		}
 	}
 
