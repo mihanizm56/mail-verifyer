@@ -1,7 +1,8 @@
 import { combineReducers } from "redux";
-import { connectRouter } from "connected-react-router";
+import validatorReducer from "../modules/validator";
+import senderReducer from "../modules/sender";
 
-export const rootReducer = history =>
-	combineReducers({
-		router: connectRouter(history),
-	});
+export const rootReducer = combineReducers({
+	validatorStorage: validatorReducer,
+	senderStorage: senderReducer,
+});

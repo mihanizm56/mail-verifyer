@@ -24,4 +24,4 @@ const senderDataStorage = (state = initialState, action) => {
 	}
 };
 
-export default langDataStorage;
+export default senderDataStorage;

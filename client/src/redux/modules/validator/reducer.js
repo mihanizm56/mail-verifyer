@@ -24,4 +24,4 @@ const validatorDataStorage = (state = initialState, action) => {
 	}
 };
 
-export default langDataStorage;
+export default validatorDataStorage;

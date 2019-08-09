@@ -14,9 +14,7 @@ const store = createAppStore();
 
 ReactDOM.render(
 	<Provider store={store}>
-		<ConnectedRouter history={history}>
-			<App />
-		</ConnectedRouter>
+		<App />
 	</Provider>,
 	ROOT_ELEMENT
 );

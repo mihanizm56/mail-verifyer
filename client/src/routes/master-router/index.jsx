@@ -7,7 +7,7 @@ export const MainRouterLayout = () => {
 		<Switch>
 			<MainPageRoute exact path="/" />
 			<VerificationPageRoute exact path="/user/:token" />
-			<Redirect to='/'>
+			{/* <Redirect to='/'> */}
 		</Switch>
 	);
 };
