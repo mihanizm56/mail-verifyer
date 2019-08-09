@@ -1,5 +1,5 @@
-import { VALIDATE_USER, SET_USERNAME } from "./constants";
+import { VALIDATE_USER, ADD_VALIDATOR_USERNAME } from "./constants";
 
 export const fetchValidateUserEmail = payload => ({ type: VALIDATE_USER, payload });
 
-export const setUsername = payload => ({ type: SET_USERNAME, payload });
+export const setUsername = payload => ({ type: ADD_VALIDATOR_USERNAME, payload });

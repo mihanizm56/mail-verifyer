@@ -42,9 +42,7 @@ export class InnerForm extends Component {
 
 export const SendForm = withFormik({
 	handleSubmit: (values, { props }) => {
-		setTimeout(() => {
-			props.submitFunc(values);
-		}, 2000);
+		props.submitFunc(values);
 	},
 	mapPropsToValues: props => {
 		return {

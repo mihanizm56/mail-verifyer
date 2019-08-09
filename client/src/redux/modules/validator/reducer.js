@@ -1,7 +1,7 @@
 import lensPath from "ramda/src/lensPath";
 import set from "ramda/src/set";
+import { ADD_VALIDATOR_USERNAME } from "./constants";
 import { LOADING_START, LOADING_FINISH, ERROR_FETCH } from "../shared/constants";
-import { SET_USERNAME } from "./constants";
 
 const initialState = {
 	isLoading: false,
@@ -15,7 +15,7 @@ const usernameLens = lensPath(["username"]);
 
 const validatorDataStorage = (state = initialState, action) => {
 	switch (action.type) {
-		case SET_USERNAME:
+		case ADD_VALIDATOR_USERNAME:
 			return set(usernameLens, action.payload, state);
 		case LOADING_START:
 			return set(loadingLens, true, state);

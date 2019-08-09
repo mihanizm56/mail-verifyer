@@ -1,7 +1,28 @@
 import { call, put } from "redux-saga/effects";
-import { setError } from "../../../redux/modules/shared";
+import { addUsername } from "./actions";
+import { setError, fetchLoadingStart, fetchLoadingFinish } from "../../../redux/modules/shared";
+import { putRequest } from "../../../services/api/requests";
+import { errorCreator } from "../../../utils/helpers/error-creator/error-creator";
 
 export function* sendUserEmailSaga(action) {
+	yield put(fetchLoadingStart());
 	console.log("check sendUserEmailSaga", action);
-	yield put(setError("test-error-setted"));
+
+	const resultOfRequest = yield call(putRequest, action.payload);
+	const { message, error } = resultOfRequest;
+	console.log("fetchReviewsRequest result", resultOfRequest);
+
+	if (error) {
+		console.log("saga request failed");
+		const getErrorText = errorCreator(error);
+		yield put(setError(getErrorText));
+		yield put(fetchLoadingFinish());
+	}
+
+	if (message && !error && action.payload.name) {
+		console.log("saga request success", action.payload.name);
+
+		yield put(addUsername(action.payload.name));
+		yield put(fetchLoadingFinish());
+	}
 }

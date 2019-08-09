@@ -3,6 +3,6 @@ import validatorReducer from "../modules/validator";
 import senderReducer from "../modules/sender";
 
 export const rootReducer = combineReducers({
-	senderDataStorage: validatorReducer,
-	validatorDataStorage: senderReducer,
+	senderDataStorage: senderReducer,
+	validatorDataStorage: validatorReducer,
 });
