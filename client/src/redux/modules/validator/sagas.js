@@ -1,7 +1,7 @@
 import { call, put } from "redux-saga/effects";
 import { addValidatorUsername, setValidateError } from "./actions";
 import { fetchLoadingStart, fetchLoadingFinish } from "../../../redux/modules/shared";
-import { getRequest } from "../../../services/api/requests";
+import { getRequest, validateUserRequest } from "../../../services/api";
 import { errorCreator } from "../../../utils/helpers/error-creator/error-creator";
 
 export function* validateUserEmailSaga(action) {
@@ -9,7 +9,7 @@ export function* validateUserEmailSaga(action) {
 	console.log("check validateUserEmailSaga", action);
 
 	// TODO insert the correct params to request
-	const resultOfRequest = yield call(getRequest, action.type);
+	const resultOfRequest = yield call(validateUserRequest, { body: action.payload });
 	const { message, error, username } = resultOfRequest;
 	console.log("fetchReviewsRequest result", resultOfRequest);
 

@@ -1,13 +1,15 @@
-import { ERROR_INTERNAL_SERVER, ERROR_NOT_VALID_DATA, ERROR_EXIST_USER } from "./constants";
+import { ERROR_INTERNAL_SERVER, ERROR_NOT_VALID_DATA, ERROR_EXIST_USER, ERROR_INVALID_TOKEN } from "./constants";
 
 export const errorCreator = error => {
 	switch (error) {
 		case ERROR_INTERNAL_SERVER:
-			return "Cервер временно недоступен";
+			return "Cервер временно недоступен, попробуйте позже";
 		case ERROR_NOT_VALID_DATA:
-			return "Введите корректные данные";
+			return "Введите корректные данные пользователя";
 		case ERROR_EXIST_USER:
 			return "Пользователь с таким именем уже существует";
+		case ERROR_INVALID_TOKEN:
+			return "Cервер временно недоступен, попробуйте позже";
 
 		default:
 			return { name: "", email: "" };

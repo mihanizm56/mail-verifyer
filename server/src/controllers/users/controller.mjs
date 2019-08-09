@@ -56,7 +56,7 @@ export const get = async (req, res) => {
 			userData.temporary = false;
 
 			if (!Boolean(userData)) {
-				res.status(401).json({ message: "fail", error: "user does not exists" });
+				res.status(401).json({ message: "fail", error: "user does not exists", username });
 				return;
 			}
 
@@ -68,12 +68,12 @@ export const get = async (req, res) => {
 			return;
 		} catch (error) {
 			console.log("error", error);
-			res.status(500).json({ message: "fail", error: "internal server error" });
+			res.status(500).json({ message: "fail", error: "internal server error", username: userData });
 			return;
 		}
 	}
 
-	res.status(401).json({ message: "fail", error: "enter the correct data" });
+	res.status(401).json({ message: "fail", error: "token is not valid" });
 	return;
 };
 

@@ -1,1 +1,1 @@
-export const userEndpoint = "/user";
+export const userRestEndpoint = "/user";

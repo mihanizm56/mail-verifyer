@@ -1,7 +1,7 @@
 import { call, put } from "redux-saga/effects";
 import { addSenderUsername, setSenderError } from "./actions";
 import { fetchLoadingStart, fetchLoadingFinish } from "../../../redux/modules/shared";
-import { putRequest } from "../../../services/api/requests";
+import { putRequest, sendUserRequest } from "../../../services/api";
 import { errorCreator } from "../../../utils/helpers/error-creator/error-creator";
 
 export function* sendUserEmailSaga(action) {
@@ -9,7 +9,7 @@ export function* sendUserEmailSaga(action) {
 	console.log("check sendUserEmailSaga", action);
 
 	// TODO insert the correct params to request
-	const resultOfRequest = yield call(putRequest, action.payload);
+	const resultOfRequest = yield call(sendUserRequest, { body: action.payload });
 	const { message, error } = resultOfRequest;
 	console.log("fetchReviewsRequest result", resultOfRequest);
 

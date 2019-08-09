@@ -1,3 +1,5 @@
+import { getRequest, putRequest } from "./requests";
+
 // export const ERROR_INTERNAL_SERVER = "internal server error";
 // export const ERROR_NOT_VALID_DATA = "enter the correct data";
 // export const ERROR_EXIST_USER = "user exists";
@@ -14,23 +16,29 @@ const errorMessage = {
 	username: "test username",
 };
 
-export const getRequest = ({ endpoint }) => {
-	// fetch(endpoint).then(data => data.json());
+export const validateUserRequest = ({ token }) => {
+	console.log("запрос на проверку токена пользователя", token);
+	// const resultOfRequest = yield call(getRequest, {
+	// 	enpoint: `${userRestEndpoint}/${action.payload}`,
+	// });
 
-	return Promise.resolve(errorMessage);
+	// return postRequest({ endpoint: `${HOST_AUTH}/login`, body });
+	return new Promise((resolve, reject) =>
+		setTimeout(() => {
+			console.log("check fetctUserValidate");
+			resolve(successMessage);
+			// reject({ error: "test-error" });
+		}, 1000)
+	);
 };
 
-export const putRequest = ({ endpoint, data }) => {
-	// const paramsObject = {
-	// 	method: "PUT",
-	// 	headers: {
-	// 		Accept: "application/json",
-	// 		"Access-Control-Allow-Origin": "*",
-	// 		"Content-Type": "application/json",
-	// 		"Cache-Control": "no-cache",
-	// 	},
-	// 	body: JSON.stringify(data),
-	// };
-	// return fetch(endpoint, paramsObject).then(data => data.json());
-	return Promise.resolve(successMessage);
+export const sendUserRequest = ({ body }) => {
+	console.log("запрос на отправку пользователя", body);
+	// return getRequest({ endpoint: `${HOST_API}/reviews` });
+	return new Promise(resolve =>
+		setTimeout(() => {
+			console.log("check getUserByToken");
+			resolve(successMessage);
+		}, 1000)
+	);
 };
