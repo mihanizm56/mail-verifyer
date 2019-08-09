@@ -4,7 +4,7 @@ import { VALIDATE_USER, validateUserEmailSaga } from "../modules/validator";
 
 function* rootSaga() {
 	yield takeEvery(SEND_USER_EMAIL, sendUserEmailSaga);
-	// yield takeEvery(VALIDATE_USER, validateUserEmailSaga);
+	yield takeEvery(VALIDATE_USER, validateUserEmailSaga);
 }
 
 export default rootSaga;

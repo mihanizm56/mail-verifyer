@@ -1,7 +1,7 @@
 import lensPath from "ramda/src/lensPath";
 import set from "ramda/src/set";
-import { ADD_VALIDATOR_USERNAME } from "./constants";
-import { LOADING_START, LOADING_FINISH, ERROR_FETCH } from "../shared/constants";
+import { ADD_VALIDATOR_USERNAME, ERROR_VALIDATE_FETCH } from "./constants";
+import { LOADING_START, LOADING_FINISH } from "../shared/constants";
 
 const initialState = {
 	isLoading: false,
@@ -21,7 +21,7 @@ const validatorDataStorage = (state = initialState, action) => {
 			return set(loadingLens, true, state);
 		case LOADING_FINISH:
 			return set(loadingLens, false, state);
-		case ERROR_FETCH:
+		case ERROR_VALIDATE_FETCH:
 			return set(errorLens, action.payload, state);
 
 		default:

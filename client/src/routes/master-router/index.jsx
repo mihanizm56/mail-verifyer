@@ -6,7 +6,7 @@ export const MainRouterLayout = () => {
 	return (
 		<Switch>
 			<MainPageRoute exact path="/main" />
-			<VerificationPageRoute path="/user/:token" />
+			<VerificationPageRoute exact path="/user/:token" />
 			<Redirect to="/main" />
 		</Switch>
 	);

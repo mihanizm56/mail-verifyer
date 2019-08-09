@@ -1,5 +1,3 @@
-export const getRequest = ({ endpoint }) => fetch(endpoint).then(data => data.json());
-
 // export const ERROR_INTERNAL_SERVER = "internal server error";
 // export const ERROR_NOT_VALID_DATA = "enter the correct data";
 // export const ERROR_EXIST_USER = "user exists";
@@ -7,11 +5,19 @@ export const getRequest = ({ endpoint }) => fetch(endpoint).then(data => data.js
 const successMessage = {
 	message: "success",
 	error: null,
+	username: "test username",
 };
 
 const errorMessage = {
 	message: "",
 	error: "internal server error",
+	username: "test username",
+};
+
+export const getRequest = ({ endpoint }) => {
+	// fetch(endpoint).then(data => data.json());
+
+	return Promise.resolve(errorMessage);
 };
 
 export const putRequest = ({ endpoint, data }) => {
@@ -26,5 +32,5 @@ export const putRequest = ({ endpoint, data }) => {
 	// 	body: JSON.stringify(data),
 	// };
 	// return fetch(endpoint, paramsObject).then(data => data.json());
-	return Promise.resolve(errorMessage);
+	return Promise.resolve(successMessage);
 };

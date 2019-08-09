@@ -1,3 +1,3 @@
 export * from "./app";
-export * from "./approver";
+export * from "./verifyer";
 export * from "./sender";

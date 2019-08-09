@@ -1,52 +1,33 @@
 import { call, put } from "redux-saga/effects";
-import { fetchValidateUserEmail, setUsername } from "./actions";
-import { setError } from "../shared/actions";
-// import {
-// 	fetchLoginRequest,
-// 	fetchAuthRequest,
-// 	deleteUser,
-// 	deleteTokens,
-// 	saveUser,
-// 	saveTokens,
-// 	fetchRefreshRequest,
-// } from "../../../services";
+import { addValidatorUsername, setValidateError } from "./actions";
+import { fetchLoadingStart, fetchLoadingFinish } from "../../../redux/modules/shared";
+import { getRequest } from "../../../services/api/requests";
+import { errorCreator } from "../../../utils/helpers/error-creator/error-creator";
 
-// export function* validateUserEmailSaga(action) {
-// 	const { token } = action.payload;
+export function* validateUserEmailSaga(action) {
+	yield put(fetchLoadingStart());
+	console.log("check validateUserEmailSaga", action);
 
-// 	if (token) {
-// 		try {
-// 			// const resultOfRequest = yield call(fetchAuthRequest, login, password);
-// 			console.log("check resultOfRequest authSaga", resultOfRequest);
-// 			const { message, error } = resultOfRequest;
+	// TODO insert the correct params to request
+	const resultOfRequest = yield call(getRequest, action.type);
+	const { message, error, username } = resultOfRequest;
+	console.log("fetchReviewsRequest result", resultOfRequest);
 
-// 			if (message && !error) {
-// 				yield put(loginSuccessAction());
-// 				saveUser(login);
-// 				saveTokens(access_token, refresh_token, expiresIn);
-// 			} else if (error === "enter the correct user data") {
-// 				yield put(stopSubmit("auth", { login: "enter correct user data", password: "enter correct user data" }));
-// 				yield put(loginFailedAction());
-// 			} else if (error === "internal server error") {
-// 				stopSubmit("auth", {
-// 					login: "network connection error, please retry",
-// 					user: "network connection error, please retry",
-// 				});
-// 				yield put(loginFailedAction());
-// 			} else if (error === "not authorized") {
-// 				yield put(stopSubmit("auth", { login: "enter correct user data", password: "enter correct user data" }));
-// 				yield put(loginFailedAction());
-// 			}
-// 		} catch (error) {
-// 			yield put(
-// 				stopSubmit("auth", {
-// 					login: "network connection error, please retry",
-// 					user: "network connection error, please retry",
-// 				})
-// 			);
-// 			yield put(loginFailedAction());
-// 		}
-// 	} else {
-// 		yield put(setError());
-// 	}
-// }
+	if (error) {
+		const getErrorText = errorCreator(error);
+		console.log("saga request failed", getErrorText);
+		yield put(setValidateError(getErrorText));
+		yield put(addValidatorUsername(username));
+		yield put(fetchLoadingFinish());
+	}
+
+	if (message && !error && username) {
+		console.log("saga request success", action.payload.name);
+
+		yield put(addValidatorUsername(username));
+		yield put(fetchLoadingFinish());
+	}
+
+	// продумать что делать если ни того ни другого
+	// yield put(fetchLoadingFinish());
+}
