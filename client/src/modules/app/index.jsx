@@ -1,11 +1,12 @@
 import React, { memo } from "react";
-import { MainWrapper } from "../../components";
+import { SendForm } from "../../components";
 import "./App.css";
 
 export const App = memo(() => {
 	return (
 		<div className="global-wrapper">
-			<MainWrapper />
+			{/* <MainWrapper /> */}
+			<SendForm />
 		</div>
 	);
 });
