@@ -1,11 +1,12 @@
 import { call, put } from "redux-saga/effects";
-import { addSenderUsername, setSenderError } from "./actions";
-import { fetchLoadingStart, fetchLoadingFinish } from "../../../redux/modules/shared";
+import { addSenderUsername, setSenderError, fetchLoadingSenderStart, fetchLoadingSenderFinish } from "./actions";
 import { putRequest, sendUserRequest } from "../../../services/api";
 import { errorCreator } from "../../../utils/helpers/error-creator/error-creator";
+import { sleep } from "../../../utils/helpers/sleeper.js";
 
 export function* sendUserEmailSaga(action) {
-	yield put(fetchLoadingStart());
+	yield put(fetchLoadingSenderStart());
+	yield sleep(2000);
 	console.log("check sendUserEmailSaga", action);
 
 	// TODO insert the correct params to request
@@ -17,13 +18,13 @@ export function* sendUserEmailSaga(action) {
 		const getErrorText = errorCreator(error);
 		console.log("saga request failed", getErrorText);
 		yield put(setSenderError(getErrorText));
-		yield put(fetchLoadingFinish());
+		yield put(fetchLoadingSenderFinish());
 	}
 
 	if (message && !error && action.payload.name) {
 		console.log("saga request success", action.payload.name);
 
 		yield put(addSenderUsername(action.payload.name));
-		yield put(fetchLoadingFinish());
+		yield put(fetchLoadingSenderFinish());
 	}
 }

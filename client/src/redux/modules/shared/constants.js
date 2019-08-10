@@ -1,3 +1,0 @@
-export const LOADING_START = "LOADING_START";
-export const LOADING_FINISH = "LOADING_FINISH";
-export const ERROR_FETCH = "ERROR_FETCH";

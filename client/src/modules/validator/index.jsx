@@ -6,7 +6,7 @@ import {
 	getValidatorUsername,
 	fetchValidateUserEmail,
 } from "../../redux/modules/validator";
-import { UserBoxVerifyer, ErrorBox } from "../../components";
+import { UserBoxVerifyer, ErrorBox, Loader } from "../../components";
 
 class WrappedComponent extends Component {
 	componentDidMount() {
@@ -15,16 +15,23 @@ class WrappedComponent extends Component {
 		fetchValidateUserEmail(token);
 	}
 
-	renderContent = ({ error, username }) =>
-		console.log("///////////", this.props) || Boolean(error) ? (
-			<ErrorBox error={error} username={username} />
-		) : (
-			<UserBoxVerifyer username={username} />
-		);
+	contentSwitcher = ({ username, error, fetchSendUserEmail, isLoading }) => {
+		console.log("////////////////", isLoading);
+
+		if (Boolean(isLoading)) {
+			return <Loader />;
+		}
+
+		if (Boolean(error)) {
+			return <ErrorBox error={error} username={username} />;
+		}
+
+		return <UserBoxVerifyer username={username} />;
+	};
 
 	render = () => {
-		const { error, username } = this.props;
-		return this.renderContent({ error, username });
+		const { error, username, isLoading } = this.props;
+		return this.contentSwitcher({ error, username, isLoading });
 	};
 }
 
@@ -36,7 +43,7 @@ const mapStateToProps = store => {
 	};
 };
 
-export const Approver = connect(
+export const Validator = connect(
 	mapStateToProps,
 	{ fetchValidateUserEmail }
 )(WrappedComponent);

@@ -1,17 +1,28 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchSendUserEmail, getSenderErrorState, getSenderUsername } from "../../redux/modules/sender";
-import { SendForm, UserBoxSender } from "../../components";
+import {
+	fetchSendUserEmail,
+	getSenderErrorState,
+	getSenderUsername,
+	getSenderLoadingState,
+} from "../../redux/modules/sender";
+import { SendForm, UserBoxSender, Loader } from "../../components";
 
-const renderContent = ({ username, error, fetchSendUserEmail }) =>
-	Boolean(username) ? (
-		<UserBoxSender username={username} />
-	) : (
-		<SendForm error={error} submitFunc={fetchSendUserEmail} />
-	);
+const contentSwitcher = ({ username, error, fetchSendUserEmail, isLoading }) => {
+	if (Boolean(isLoading)) {
+		return <Loader />;
+	}
+
+	if (Boolean(username)) {
+		return <UserBoxSender username={username} />;
+	}
+
+	return <SendForm error={error} submitFunc={fetchSendUserEmail} />;
+};
 
 const mapStateToProps = store => {
 	return {
+		isLoading: getSenderLoadingState(store),
 		error: getSenderErrorState(store),
 		username: getSenderUsername(store),
 	};
@@ -20,4 +31,4 @@ const mapStateToProps = store => {
 export const Sender = connect(
 	mapStateToProps,
 	{ fetchSendUserEmail }
-)(renderContent);
+)(contentSwitcher);
