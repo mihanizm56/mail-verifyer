@@ -1,6 +1,12 @@
 import lensPath from "ramda/src/lensPath";
 import set from "ramda/src/set";
-import { ADD_SENDER_USERNAME, ERROR_SENDER_FETCH, LOADING_START_SENDER, LOADING_FINISH_SENDER } from "./constants";
+import {
+	ADD_SENDER_USERNAME,
+	ERROR_SENDER_FETCH,
+	LOADING_START_SENDER,
+	LOADING_FINISH_SENDER,
+	NEW_MESSAGE,
+} from "./constants";
 
 const initialState = {
 	isLoading: false,
@@ -22,6 +28,8 @@ const senderDataStorage = (state = initialState, action) => {
 			return set(loadingLens, false, state);
 		case ERROR_SENDER_FETCH:
 			return set(errorLens, action.payload, state);
+		case NEW_MESSAGE:
+			return initialState;
 
 		default:
 			return state;

@@ -1,0 +1,38 @@
+.complete-user-box {
+    border: 1px solid red;
+}
+
+.complete-user-box__text {
+    border: 1px solid green;
+
+}
+
+.complete-user-box__button {
+    border: 1px solid blue;
+}
+
+@media (max-width: 767px) {
+    .complete-user-box {}
+
+    .complete-user-box__text {}
+
+    .complete-user-box__button {}
+}
+
+@media (min-width: 768px) {
+    .complete-user-box {}
+
+    .complete-user-box__text {}
+
+    .complete-user-box__button {}
+}
+
+@media (min-width: 1200px) {
+    .complete-user-box {
+        width: 70%;
+    }
+
+    .complete-user-box__text {}
+
+    .complete-user-box__button {}
+}

@@ -9,13 +9,16 @@ import "./styles/shared.css";
 import "./styles/keyframes.css";
 import "./assets/fonts/index.css";
 
+import { UserBoxSender } from "./components";
+
 const ROOT_ELEMENT = document.getElementById("root");
 const store = createAppStore();
 
 ReactDOM.render(
 	<Provider store={store}>
 		<BrowserRouter>
-			<App />
+			{/* <App /> */}
+			<UserBoxSender />
 		</BrowserRouter>
 	</Provider>,
 	ROOT_ELEMENT

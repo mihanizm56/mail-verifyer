@@ -4,6 +4,7 @@ import {
 	ERROR_SENDER_FETCH,
 	LOADING_START_SENDER,
 	LOADING_FINISH_SENDER,
+	NEW_MESSAGE,
 } from "./constants";
 
 export const fetchSendUserEmail = payload => ({ type: SEND_USER_EMAIL, payload });
@@ -15,3 +16,5 @@ export const setSenderError = payload => ({ type: ERROR_SENDER_FETCH, payload })
 export const fetchLoadingSenderStart = () => ({ type: LOADING_START_SENDER });
 
 export const fetchLoadingSenderFinish = () => ({ type: LOADING_FINISH_SENDER });
+
+export const createNewMail = () => ({ type: NEW_MESSAGE });
