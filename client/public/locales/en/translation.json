@@ -1,5 +1,19 @@
 {
   "mail": {
-    "new": "test-en"
+    "repeat-sending": "send new message",
+    "sended-successfully":"The message was sent successfully to {{username}}",
+    "send-form":{
+      "name":"Username",
+      "email":"E-mail",
+      "validate":"Validate"
+    }
+  },
+  "user-verify":{
+    "success":"The verification of {{username}} was done successfully"
+  },
+  "error-box":{
+    "title":"There is an error when sending you an email",
+    "error":"Error: {{error}}",
+    "username":"Username: {{username}}"
   }
 }
