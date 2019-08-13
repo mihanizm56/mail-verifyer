@@ -19,31 +19,24 @@ export const put = async (req, res) => {
 	}
 
 	try {
+		let newUser;
+		const userToken = createToken({ username: sanitizedUsername });
 		const existedUser = await getUserFromDbByUsername({ username: sanitizedUsername });
 
 		if (Boolean(existedUser)) {
-			res.status(401).json({ message: "fail", error: "user exists" });
-			return;
+			existedUser.temporary = true;
+
+			await updateUserFromDb({ username: sanitizedUsername, userData: existedUser });
+		} else {
+			await addUserInDb(newUserData).save();
 		}
-	} catch (error) {
-		console.log("error", error);
-		res.status(500).json({ message: "fail", error: "internal server error" });
 
-		return;
-	}
-
-	try {
-		const newUser = await addUserInDb(newUserData).save();
-		const userToken = createToken({ username: sanitizedUsername });
-
-		await sendEmail({ token: userToken, username: newUser.username, email: sanitizedUserEmail });
+		await sendEmail({ token: userToken, username: sanitizedUsername, email: sanitizedUserEmail });
 
 		res.status(200).json({ message: "success", error: "" });
 	} catch (error) {
 		console.log("error", error);
 		res.status(500).json({ message: "fail", error: "internal server error" });
-
-		return;
 	}
 };
 
