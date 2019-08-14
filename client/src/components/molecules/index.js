@@ -1,4 +1,3 @@
-export * from "./error-box";
-export * from "./send-form";
-export * from "./user-box-sender";
-export * from "./user-box-verifyer";
+export * from "./error-modal";
+export * from "./success-modal";
+export * from "./user-form";

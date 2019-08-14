@@ -10,6 +10,6 @@ export const errorCreator = error => {
 			return "Cервер временно недоступен, попробуйте позже";
 
 		default:
-			return { name: "", email: "" };
+			return "";
 	}
 };

@@ -7,19 +7,25 @@ import {
 	getSenderUsername,
 	getSenderLoadingState,
 } from "../../redux/modules/sender";
-import { SendForm, UserBoxSender, Loader } from "../../components";
+import { SendForm, UserBoxSender, Loader, ErrorModal, SuccessModal } from "../../components";
 
-const contentSwitcher = ({ username, error, fetchSendUserEmail, isLoading, createNewMail }) => {
-	if (Boolean(isLoading)) {
-		return <Loader />;
-	}
+class SenderContainer extends Component {
+	contentSwitcher = ({ username, error, fetchSendUserEmail, isLoading, createNewMail }) => {
+		if (Boolean(error)) {
+			return <ErrorModal />;
+		}
 
-	if (Boolean(username)) {
-		return <UserBoxSender username={username} handleReset={createNewMail} />;
-	}
+		// if (Boolean(isLoading)) {
+		// 	return <Loader />;
+		// }
 
-	return <SendForm error={error} submitFunc={fetchSendUserEmail} />;
-};
+		if (Boolean(username)) {
+			return <UserBoxSender username={username} handleReset={createNewMail} />;
+		}
+
+		return <SendForm error={error} submitFunc={fetchSendUserEmail} />;
+	};
+}
 
 const mapStateToProps = store => {
 	return {
@@ -32,4 +38,4 @@ const mapStateToProps = store => {
 export const Sender = connect(
 	mapStateToProps,
 	{ fetchSendUserEmail, createNewMail }
-)(contentSwitcher);
+)(SenderContainer);

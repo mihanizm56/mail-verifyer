@@ -7,9 +7,10 @@ import { BrowserRouter } from "react-router-dom";
 import "./styles/main.css";
 import "./styles/shared.css";
 import "./styles/keyframes.css";
+import "./styles/variables.css";
 import "./assets/fonts/index.css";
 
-import { ErrorBox } from "./components";
+import { ErrorModal } from "./components";
 
 import "./services/i18n";
 
@@ -20,7 +21,7 @@ ReactDOM.render(
 	<Provider store={store}>
 		<BrowserRouter>
 			<Suspense fallback={<div />}>
-				<ErrorBox username="test-username" error="test-error" />
+				<ErrorModal username="test-username" error="test-error" />
 				{/* <App /> */}
 			</Suspense>
 		</BrowserRouter>
