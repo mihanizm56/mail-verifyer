@@ -1,0 +1,17 @@
+.link-button {
+    border: 1px solid black;
+    border-radius: 15px;
+    transition: .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 70px;
+}
+
+.link-button:hover {
+    background-color: var(--black);
+    --color-button-text: #ffffff;
+}
+
+@media screen and (max-width: 767px) {}

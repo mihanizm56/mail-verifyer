@@ -7,7 +7,7 @@ import {
 	getSenderUsername,
 	getSenderLoadingState,
 } from "../../redux/modules/sender";
-import { SendForm, UserBoxSender, Loader, ErrorModal, SuccessModal } from "../../components";
+import { UserForm, UserBoxSender, Loader, ErrorModal, SuccessModal } from "../../components";
 
 class SenderContainer extends Component {
 	contentSwitcher = ({ username, error, fetchSendUserEmail, isLoading, createNewMail }) => {
@@ -23,7 +23,7 @@ class SenderContainer extends Component {
 			return <UserBoxSender username={username} handleReset={createNewMail} />;
 		}
 
-		return <SendForm error={error} submitFunc={fetchSendUserEmail} />;
+		return <UserForm error={error} submitFunc={fetchSendUserEmail} />;
 	};
 }
 

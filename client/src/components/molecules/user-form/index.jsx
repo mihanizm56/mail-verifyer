@@ -42,7 +42,7 @@ export class WrappedForm extends Component {
 }
 
 // TODO write a regular composition
-export const FormikSendForm = withFormik({
+export const FormikUserForm = withFormik({
 	handleSubmit: (values, { props }) => {
 		props.submitFunc(values);
 	},
@@ -54,4 +54,4 @@ export const FormikSendForm = withFormik({
 	},
 })(WrappedForm);
 
-export const SendForm = withTranslation()(FormikSendForm);
+export const UserForm = withTranslation()(FormikUserForm);

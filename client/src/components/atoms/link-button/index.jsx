@@ -13,5 +13,5 @@ export const LinkButton = ({ to, text, handleButtonClick }) => (
 );
 
 LinkButton.defaultProps = {
-	handleButtonClick: () => {},
+	handleButtonClick: () => console.log("default handleButtonClick"),
 };

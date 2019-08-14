@@ -21,7 +21,7 @@ ReactDOM.render(
 	<Provider store={store}>
 		<BrowserRouter>
 			<Suspense fallback={<div />}>
-				<SuccessModal username="test-username" />
+				{/* <SuccessModal username="test-username" /> */}
 				{/* <ErrorModal username="test-username" error="test-error" handleButtonClick={() => console.log("check")} /> */}
 				{/* <App /> */}
 			</Suspense>
