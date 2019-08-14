@@ -1,8 +1,7 @@
 import { call, put } from "redux-saga/effects";
 import { addSenderUsername, setSenderError, fetchLoadingSenderStart, fetchLoadingSenderFinish } from "./actions";
 import { putRequest, sendUserRequest } from "../../../services/api";
-import { errorCreator } from "../../../utils/helpers/error-creator/error-creator";
-import { sleep } from "../../../utils/helpers/sleeper.js";
+import { sleep, errorCreator } from "../../../utils";
 
 export function* sendUserEmailSaga(action) {
 	yield put(fetchLoadingSenderStart());

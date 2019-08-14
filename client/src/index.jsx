@@ -10,7 +10,7 @@ import "./styles/keyframes.css";
 import "./styles/variables.css";
 import "./assets/fonts/index.css";
 
-import { ErrorModal } from "./components";
+import { ErrorModal, SuccessModal } from "./components";
 
 import "./services/i18n";
 
@@ -21,7 +21,8 @@ ReactDOM.render(
 	<Provider store={store}>
 		<BrowserRouter>
 			<Suspense fallback={<div />}>
-				<ErrorModal username="test-username" error="test-error" />
+				<SuccessModal username="test-username" />
+				{/* <ErrorModal username="test-username" error="test-error" handleButtonClick={() => console.log("check")} /> */}
 				{/* <App /> */}
 			</Suspense>
 		</BrowserRouter>

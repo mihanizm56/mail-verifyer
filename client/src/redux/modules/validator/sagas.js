@@ -6,8 +6,7 @@ import {
 	fetchLoadingValidatorFinish,
 } from "./actions";
 import { getRequest, validateUserRequest } from "../../../services/api";
-import { errorCreator } from "../../../utils/helpers/error-creator/error-creator";
-import { sleep } from "../../../utils/helpers/sleeper.js";
+import { sleep, errorCreator } from "../../../utils";
 
 export function* validateUserEmailSaga(action) {
 	yield put(fetchLoadingValidatorStart());

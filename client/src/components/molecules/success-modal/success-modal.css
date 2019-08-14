@@ -1,0 +1,31 @@
+.success-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid red;
+    width: 900px;
+    min-height: 150px;
+    padding: 20px 0;
+}
+
+.success-modal__text {
+    display: flex;
+    justify-content: center;
+}
+
+.success-modal__button {
+    padding-top: 20px;
+}
+
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+    .success-modal {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .success-modal {
+        width: 90%;
+    }
+}
