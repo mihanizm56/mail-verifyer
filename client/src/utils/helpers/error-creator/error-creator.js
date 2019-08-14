@@ -6,8 +6,6 @@ export const errorCreator = error => {
 			return "Cервер временно недоступен, попробуйте позже";
 		case ERROR_NOT_VALID_DATA:
 			return "Введите корректные данные пользователя";
-		case ERROR_EXIST_USER:
-			return "Пользователь с таким именем уже существует";
 		case ERROR_INVALID_TOKEN:
 			return "Cервер временно недоступен, попробуйте позже";
 
