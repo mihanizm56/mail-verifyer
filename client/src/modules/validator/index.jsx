@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withTranslation } from "react-i18next";
 import {
 	getValidatorLoadingState,
 	getValidatorErrorState,
@@ -7,8 +8,7 @@ import {
 	fetchValidateUserEmail,
 } from "../../redux/modules/validator";
 import { SuccessModal, ErrorModal, Loader } from "../../components";
-
-const REDIRECTION_URL_FOR_LINK_BUTTON = "/send";
+import { REDIRECTION_URL_FOR_LINK_BUTTON } from "../../constants";
 
 class ValidatorContainer extends Component {
 	componentDidMount() {
@@ -18,14 +18,19 @@ class ValidatorContainer extends Component {
 	}
 
 	contentSwitcher = () => {
-		const { username, error, isLoading } = this.props;
+		const { username, error, isLoading, t: translate } = this.props;
 
 		if (Boolean(error)) {
 			return <ErrorModal errorText={error} />;
 		}
 
 		if (Boolean(username)) {
-			return <SuccessModal buttonClickRedirectsTo={REDIRECTION_URL_FOR_LINK_BUTTON} successText="success verify" />;
+			return (
+				<SuccessModal
+					buttonClickRedirectsTo={REDIRECTION_URL_FOR_LINK_BUTTON}
+					successText={translate("success.verified", { username })}
+				/>
+			);
 		}
 
 		return <Loader />;
@@ -40,7 +45,9 @@ const mapStateToProps = store => ({
 	username: getValidatorUsername(store),
 });
 
-export const Validator = connect(
+const Wrapped = connect(
 	mapStateToProps,
 	{ fetchValidateUserEmail }
 )(ValidatorContainer);
+
+export const Validator = withTranslation()(Wrapped);

@@ -6,7 +6,6 @@ import { getClass } from "../../../utils";
 export const OpenSansText = ({ text, bold, isButton }: OpenSansTextProps) => (
 	<span
 		className={sn("open-sans-text", {
-			"open-sans-text--bold": bold,
 			"open-sans-text--button": isButton,
 		})}
 	>

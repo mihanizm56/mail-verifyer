@@ -1,12 +1,15 @@
-.user-form {
-    border: 1px solid green;
+.form-wrapper {
     border-radius: 20px;
+    border: 1px solid green;
+    width: 800px;
+    min-height: 650px
+}
+
+.user-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 800px;
-    min-height: 650px
 }
 
 .user-form__row {
@@ -57,13 +60,13 @@
 }
 
 @media screen and (max-width: 1199px) and (min-width: 768px) {
-    .user-form {
+    .form-wrapper {
         width: 90%;
     }
 }
 
 @media screen and (max-width: 767px) {
-    .user-form {
+    .form-wrapper {
         width: 95%;
     }
     .user-form__row:first-child {
@@ -78,6 +81,7 @@
     }
     .user-form__error {
         height: 30px;
+        justify-content: center;
     }
     .user-form__text-field {
         order: 1;

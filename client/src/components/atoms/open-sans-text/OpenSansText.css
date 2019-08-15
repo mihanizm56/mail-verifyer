@@ -6,10 +6,6 @@
     transition: .5s;
 }
 
-.open-sans-text--bold {
-    font-family: var(--font-family-bold)
-}
-
 .open-sans-text--button {
     color: var(--color-button-text);
 }

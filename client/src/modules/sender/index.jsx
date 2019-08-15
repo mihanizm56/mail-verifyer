@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { useTranslation } from "react-i18next";
 import {
 	fetchSendUserEmail,
 	createNewMail,
@@ -8,31 +9,30 @@ import {
 	getSenderLoadingState,
 } from "../../redux/modules/sender";
 import { UserForm, UserBoxSender, Loader, ErrorModal, SuccessModal } from "../../components";
+import { REDIRECTION_URL_FOR_LINK_BUTTON } from "../../constants";
+
+const createSendSuccessMessage = ({ username }) => {
+	const { t: translate } = useTranslation();
+	return translate("success.send-email", { username });
+};
 
 const contentSwitcher = ({ username, error, fetchSendUserEmail, isLoading, createNewMail }) => {
-	// if (Boolean(error)) {
-	// 	return <ErrorModal errorText={error} handleButtonClick={createNewMail} />;
-	// }
-
-	// if (Boolean(isLoading)) {
-	// 	return <Loader />;
-	// }
+	if (Boolean(isLoading)) {
+		return <Loader />;
+	}
 
 	if (Boolean(username)) {
 		return (
 			<SuccessModal
-				username={username}
-				buttonClickRedirectsTo="/send"
+				buttonClickRedirectsTo={REDIRECTION_URL_FOR_LINK_BUTTON}
 				handleButtonClick={createNewMail}
-				successText="successText"
+				successText={createSendSuccessMessage({ username })}
 			/>
 		);
 	}
 
 	return <UserForm error={error} submitFunc={fetchSendUserEmail} />;
 };
-
-const renderContent = props => <div className="sender-wrapper">{contentSwitcher(props)}</div>;
 
 const mapStateToProps = store => {
 	return {
@@ -45,4 +45,4 @@ const mapStateToProps = store => {
 export const Sender = connect(
 	mapStateToProps,
 	{ fetchSendUserEmail, createNewMail }
-)(renderContent);
+)(contentSwitcher);

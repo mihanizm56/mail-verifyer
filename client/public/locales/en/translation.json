@@ -4,21 +4,22 @@
     "server":"Internal server error",
     "username":"Please, enter the correct login",
     "email":"Please, enter the correct email",
-    "userdata":"Please, enter the correct user data"
+    "userdata":"Please, enter the correct user data",
+    "error-type-label":"Error type"
   },
   "success":{
     "send-email":"The verification message was sent to the {{username}} email",
     "verified":"User {{username}} was successfully verified"
   },
   "form":{
-    "title":"Введите ваши данные",
+    "title":"Please, enter the data",
     "labels":{
-      "username":"Логин",
-      "email":"Адрес электронной почты"
+      "username":"Username",
+      "email":"Email"
     }
   },
   "buttons":{
-    "send-new":"Отправить новое сообщение",
-    "validate":"Подтвердить пользователя"
+    "send-new":"Send new verification",
+    "validate":"Send verification"
   }
 }
