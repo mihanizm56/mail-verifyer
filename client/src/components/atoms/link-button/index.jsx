@@ -5,7 +5,7 @@ import sn from "classnames";
 import "./link-button.css";
 
 export const LinkButton = ({ to, text, handleButtonClick }) => (
-	<NavLink exact to={to} className={sn("link-button")}>
+	<NavLink exact to={to} className={sn("link-button")} onClick={handleButtonClick}>
 		<OpenSansText text={text} isButton />
 	</NavLink>
 );

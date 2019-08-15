@@ -1,19 +1,24 @@
 {
-  "mail": {
-    "repeat-sending": "send new message",
-    "sended-successfully":"The message was sent successfully to {{username}}",
-    "send-form":{
-      "name":"Username",
-      "email":"E-mail",
-      "validate":"Validate"
+  "errors":{
+    "title":"Sorry, there is an error",
+    "server":"Internal server error",
+    "username":"Please, enter the correct login",
+    "email":"Please, enter the correct email",
+    "userdata":"Please, enter the correct user data"
+  },
+  "success":{
+    "send-email":"The verification message was sent to the {{username}} email",
+    "verified":"User {{username}} was successfully verified"
+  },
+  "form":{
+    "title":"Введите ваши данные",
+    "labels":{
+      "username":"Логин",
+      "email":"Адрес электронной почты"
     }
   },
-  "user-verify":{
-    "success":"The verification of {{username}} was done successfully"
-  },
-  "error-box":{
-    "title":"There is an error when sending you an email",
-    "error":"Error: {{error}}",
-    "username":"Username: {{username}}"
+  "buttons":{
+    "send-new":"Отправить новое сообщение",
+    "validate":"Подтвердить пользователя"
   }
 }

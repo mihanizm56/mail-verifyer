@@ -10,13 +10,13 @@ import {
 import { UserForm, UserBoxSender, Loader, ErrorModal, SuccessModal } from "../../components";
 
 const contentSwitcher = ({ username, error, fetchSendUserEmail, isLoading, createNewMail }) => {
-	if (Boolean(error)) {
-		return <ErrorModal errorText={error} handleButtonClick={createNewMail} />;
-	}
+	// if (Boolean(error)) {
+	// 	return <ErrorModal errorText={error} handleButtonClick={createNewMail} />;
+	// }
 
-	if (Boolean(isLoading)) {
-		return <Loader />;
-	}
+	// if (Boolean(isLoading)) {
+	// 	return <Loader />;
+	// }
 
 	if (Boolean(username)) {
 		return (

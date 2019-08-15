@@ -47,6 +47,7 @@
 
 .user-form__error {
     height: 30px;
+    display: flex;
 }
 
 .user-form__error-text {
