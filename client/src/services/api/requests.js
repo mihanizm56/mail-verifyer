@@ -38,7 +38,7 @@ export const sendUserRequest = ({ body }) => {
 	return new Promise(resolve =>
 		setTimeout(() => {
 			console.log("check getUserByToken");
-			resolve(successMessage);
+			resolve(errorMessage);
 		}, 1000)
 	);
 };

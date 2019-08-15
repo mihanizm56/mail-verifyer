@@ -1,4 +1,4 @@
-.link-button {
+.button {
     border: 1px solid black;
     border-radius: 15px;
     transition: .5s;
@@ -7,9 +7,15 @@
     align-items: center;
     width: 300px;
     height: 70px;
+    transition: .2s;
+    outline: none;
 }
 
-.link-button:hover {
+.button:focus {
+    box-shadow: 0 0 0 2pt grey;
+}
+
+.button:hover {
     background-color: var(--black);
     --color-button-text: #ffffff;
 }

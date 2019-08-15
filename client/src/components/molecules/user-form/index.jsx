@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Formik, Field, Form, ErrorMessage, FieldArray, withFormik } from "formik";
 import { withTranslation } from "react-i18next";
+import { OpenSansText, Button } from "../../../components";
+import "./user-form.css";
 
 export class WrappedForm extends Component {
 	componentDidUpdate(prevProps) {
@@ -15,28 +17,43 @@ export class WrappedForm extends Component {
 		const { values, t: translate } = this.props;
 
 		return (
-			<div>
-				<Form>
-					<FieldArray
-						name="email-sender"
-						render={() => (
-							<div>
-								<div className="col">
-									<label htmlFor="name">{translate("mail.send-form.name")}</label>
-									<Field name="name" value={values.name} type="text" />
-									<ErrorMessage name="name" component="div" className="field-error" />
+			<Form>
+				<FieldArray
+					name="email-sender"
+					render={() => (
+						<div className="user-form">
+							<div className="user-form__row">
+								<OpenSansText text="Введите ваши данные" />
+							</div>
+							<div className="user-form__row">
+								<div className="user-form__field-block">
+									<label htmlFor="name" className="user-form__label">
+										<OpenSansText text="Логин" />
+									</label>
+									<Field className="user-form__text-field" name="name" value={values.name} type="text" />
 								</div>
-								<div className="col">
-									<label htmlFor="email">{translate("mail.send-form.email")}</label>
-									<Field name="email" value={values.email} type="email" />
-									<ErrorMessage name="email" component="div" className="field-error" />
+								<div className="user-form__error">
+									<ErrorMessage name="name" component="div" className="user-form__error-text" />
 								</div>
 							</div>
-						)}
-					/>
-					<button type="submit">{translate("mail.send-form.validate")}</button>
-				</Form>
-			</div>
+							<div className="user-form__row">
+								<div className="user-form__field-block">
+									<label htmlFor="email" className="user-form__label">
+										<OpenSansText text="Электронная почта" />
+									</label>
+									<Field className="user-form__text-field" name="email" value={values.email} type="email" />
+								</div>
+								<div className="user-form__error">
+									<ErrorMessage name="email" component="div" className="user-form__error-text" />
+								</div>
+							</div>
+							<div className="user-form__row user-form__row--button">
+								<Button type="submit" text="Отправить" />
+							</div>
+						</div>
+					)}
+				/>
+			</Form>
 		);
 	};
 }
@@ -46,12 +63,7 @@ export const FormikUserForm = withFormik({
 	handleSubmit: (values, { props }) => {
 		props.submitFunc(values);
 	},
-	mapPropsToValues: props => {
-		return {
-			name: "test",
-			email: "test@mail.ru",
-		};
-	},
+	mapPropsToValues: () => ({}),
 })(WrappedForm);
 
 export const UserForm = withTranslation()(FormikUserForm);
