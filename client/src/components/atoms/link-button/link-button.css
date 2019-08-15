@@ -2,14 +2,13 @@
     border: 1px solid black;
     border-radius: 15px;
     transition: .5s;
+    width: 300px;
+    height: 70px;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px;
-    height: 70px;
-}
-
-.link-button__button {
+    border-radius: 15px;
     text-decoration: none;
 }
 
@@ -17,5 +16,3 @@
     background-color: var(--black);
     --color-button-text: #ffffff;
 }
-
-@media screen and (max-width: 767px) {}

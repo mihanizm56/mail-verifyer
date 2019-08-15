@@ -2,18 +2,17 @@ import { getRequest, putRequest } from "./requests";
 
 // export const ERROR_INTERNAL_SERVER = "internal server error";
 // export const ERROR_NOT_VALID_DATA = "enter the correct data";
-// export const ERROR_EXIST_USER = "user exists";
 
 const successMessage = {
 	message: "success",
 	error: null,
-	username: "test username",
+	username: "test username success",
 };
 
 const errorMessage = {
 	message: "",
-	error: "internal server error",
-	username: "test username",
+	error: "enter the correct data",
+	username: "",
 };
 
 export const validateUserRequest = ({ token }) => {
@@ -26,7 +25,7 @@ export const validateUserRequest = ({ token }) => {
 	return new Promise((resolve, reject) =>
 		setTimeout(() => {
 			console.log("check fetctUserValidate");
-			resolve(successMessage);
+			resolve(errorMessage);
 			// reject({ error: "test-error" });
 		}, 1000)
 	);

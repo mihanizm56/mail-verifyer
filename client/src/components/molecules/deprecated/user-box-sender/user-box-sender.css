@@ -1,10 +1,9 @@
 .complete-user-box {
-    border: 1px solid red;
+    border: 1px solid grey;
 }
 
 .complete-user-box__text {
     border: 1px solid green;
-
 }
 
 .complete-user-box__button {
@@ -15,24 +14,18 @@
     .complete-user-box {
         width: 70%;
     }
-
     .complete-user-box__text {}
-
     .complete-user-box__button {}
 }
 
 @media screen and (max-width: 1199px) and (min-width: 768px) {
     .complete-user-box {}
-
     .complete-user-box__text {}
-
     .complete-user-box__button {}
 }
 
 @media screen and (max-width: 767px) {
     .complete-user-box {}
-
     .complete-user-box__text {}
-
     .complete-user-box__button {}
 }

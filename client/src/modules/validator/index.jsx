@@ -6,44 +6,41 @@ import {
 	getValidatorUsername,
 	fetchValidateUserEmail,
 } from "../../redux/modules/validator";
-import { UserBoxVerifyer, ErrorBox, Loader } from "../../components";
+import { SuccessModal, ErrorModal, Loader } from "../../components";
 
-class WrappedComponent extends Component {
+const REDIRECTION_URL_FOR_LINK_BUTTON = "/send";
+
+class ValidatorContainer extends Component {
 	componentDidMount() {
 		const { fetchValidateUserEmail, token } = this.props;
 
 		fetchValidateUserEmail(token);
 	}
 
-	contentSwitcher = ({ username, error, fetchSendUserEmail, isLoading }) => {
-		console.log("////////////////", isLoading);
-
-		if (Boolean(isLoading)) {
-			return <Loader />;
-		}
+	contentSwitcher = () => {
+		const { username, error, isLoading } = this.props;
 
 		if (Boolean(error)) {
-			return <ErrorBox error={error} username={username} />;
+			return <ErrorModal errorText={error} />;
 		}
 
-		return <UserBoxVerifyer username={username} />;
+		if (Boolean(username)) {
+			return <SuccessModal buttonClickRedirectsTo={REDIRECTION_URL_FOR_LINK_BUTTON} successText="success verify" />;
+		}
+
+		return <Loader />;
 	};
 
-	render = () => {
-		const { error, username, isLoading } = this.props;
-		return this.contentSwitcher({ error, username, isLoading });
-	};
+	render = () => <div className="verifyer-wrapper">{this.contentSwitcher()}</div>;
 }
 
-const mapStateToProps = store => {
-	return {
-		isLoading: getValidatorLoadingState(store),
-		error: getValidatorErrorState(store),
-		username: getValidatorUsername(store),
-	};
-};
+const mapStateToProps = store => ({
+	isLoading: getValidatorLoadingState(store),
+	error: getValidatorErrorState(store),
+	username: getValidatorUsername(store),
+});
 
 export const Validator = connect(
 	mapStateToProps,
 	{ fetchValidateUserEmail }
-)(WrappedComponent);
+)(ValidatorContainer);

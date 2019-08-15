@@ -1,7 +1,7 @@
 .error-modal {
     display: flex;
     flex-direction: column;
-    border: 1px solid red;
+    border: 1px solid grey;
     border-radius: 20px;
     padding-top: 25px;
     width: 700px;

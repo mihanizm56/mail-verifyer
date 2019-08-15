@@ -19,9 +19,8 @@ export function* validateUserEmailSaga(action) {
 	console.log("fetchReviewsRequest result", resultOfRequest);
 
 	if (error) {
-		const getErrorText = errorCreator(error);
-		console.log("saga request failed", getErrorText);
-		yield put(setValidateError(getErrorText));
+		console.log("saga request failed", error);
+		yield put(setValidateError(error));
 		yield put(addValidatorUsername(username));
 		yield put(fetchLoadingValidatorFinish());
 	}
