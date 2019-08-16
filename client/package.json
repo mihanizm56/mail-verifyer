@@ -26,7 +26,8 @@
     "redux-form": "8.1.0",
     "redux-saga": "1.0.2",
     "reselect": "4.0.0",
-    "typescript": "3.4.5"
+    "typescript": "3.4.5",
+    "eslint-plugin-react": "7.11.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -61,7 +62,6 @@
     "eslint-config-prettier": "3.3.0",
     "eslint-plugin-notice": "0.7.7",
     "eslint-plugin-prettier": "3.0.0",
-    "eslint-plugin-react": "7.11.1",
     "husky": "1.2.1",
     "lint-staged": "8.1.0",
     "prettier": "1.15.3",
