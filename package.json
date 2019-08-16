@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "heroku-prebuild": "npm run install:all && npm run build:client && npm run copy",
     "copy": "cd scripts/copier && node --experimental-modules interface.mjs",
     "client": "cd client && npm start",
     "build:client": "cd client && npm run build",
     "server:dev": "cd server && npm run dev",
     "server:prod": "cd server && npm run prod",
     "start:dev": "concurrently --kill-others-on-fail \"npm run client\" \"npm run server:dev\"",
-    "start": "cross-env-shell NODE_ENV=production npm run server:prod",
+    "start": "npm run server:prod",
+    "prebuild": "cross-env-shell NODE_ENV=production npm run build:client && npm run copy",
     "stop": "taskkill /F /IM node.exe",
     "install:server": "cd server && npm i",
     "install:client": "cd client && npm i",
@@ -21,7 +23,6 @@
   "license": "ISC",
   "dependencies": {
     "cross-env": "^5.2.0",
-    "dotenv": "^8.0.0",
     "mkdirp-promise": "^5.0.1"
   },
   "devDependencies": {
