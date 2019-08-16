@@ -9,8 +9,8 @@
     "build:client": "cd client && npm run build",
     "server:dev": "cd server && npm run dev",
     "server:prod": "cd server && npm run prod",
-    "start": "cross-env-shell NODE_ENV=development concurrently --kill-others-on-fail \"npm run client\" \"npm run server:dev\"",
-    "deploy": "cross-env-shell NODE_ENV=production npm run build:client && npm run copy && npm run server:prod",
+    "start:dev": "concurrently --kill-others-on-fail \"npm run client\" \"npm run server:dev\"",
+    "start": "cross-env-shell NODE_ENV=production npm run build:client && npm run copy && npm run server:prod",
     "stop": "taskkill /F /IM node.exe",
     "install:server": "cd server && npm i",
     "install:client": "cd client && npm i",
@@ -19,11 +19,11 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^4.1.0"
-  },
   "dependencies": {
     "cross-env": "^5.2.0",
     "mkdirp-promise": "^5.0.1"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0"
   }
 }

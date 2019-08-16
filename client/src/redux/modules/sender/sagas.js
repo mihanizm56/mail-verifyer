@@ -11,7 +11,7 @@ export function* sendUserEmailSaga(action) {
 		// TODO insert the correct params to request
 		const resultOfRequest = yield call(sendUserRequest, { body: action.payload });
 		const { message, error } = resultOfRequest;
-		console.log("fetchReviewsRequest result", resultOfRequest);
+		console.log("sendUserEmailSaga result", resultOfRequest);
 
 		if (error) {
 			console.log("saga request failed", error);

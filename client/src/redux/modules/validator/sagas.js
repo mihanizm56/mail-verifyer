@@ -18,7 +18,7 @@ export function* validateUserEmailSaga(action) {
 		console.log("resultOfRequest", resultOfRequest);
 
 		const { message, error, username } = resultOfRequest;
-		console.log("fetchReviewsRequest result", resultOfRequest);
+		console.log("validateUserEmailSaga result", resultOfRequest);
 
 		if (error) {
 			console.log("saga request failed", error);
