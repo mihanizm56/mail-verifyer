@@ -5,9 +5,9 @@ import { MainPageRoute, VerificationPageRoute } from "../slave-router";
 export const MainRouterLayout = () => {
 	return (
 		<Switch>
-			<MainPageRoute exact path="/user" />
-			<VerificationPageRoute exact path="/user/:token" />
-			<Redirect to="/user" />
+			<MainPageRoute exact path="/send" />
+			<VerificationPageRoute exact path="/verify/:token" />
+			<Redirect to="/send" />
 		</Switch>
 	);
 };

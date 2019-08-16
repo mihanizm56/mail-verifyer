@@ -35,7 +35,7 @@ const getMailMessage = async ({ email, link }) => ({
 });
 
 export const sendEmail = async ({ token, email }) => {
-	const link = `${domain}/user/${token}`;
+	const link = `${domain}/verify/${token}`;
 	const message = await getMailMessage({ email, link });
 
 	try {
