@@ -36,7 +36,7 @@ class ValidatorContainer extends Component {
 		return <Loader />;
 	};
 
-	render = () => <div className="verifyer-wrapper">{this.contentSwitcher()}</div>;
+	render = () => this.contentSwitcher();
 }
 
 const mapStateToProps = store => ({

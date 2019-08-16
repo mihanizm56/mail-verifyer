@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import classNames from 'classnames';
+import classNames from "classnames";
 import { Formik, Field, Form, ErrorMessage, FieldArray, withFormik } from "formik";
 import { withTranslation } from "react-i18next";
 import { OpenSansText, Button } from "../../../components";
@@ -21,8 +21,10 @@ export class WrappedForm extends Component {
 		const { values, isLoading, t: translate } = this.props;
 
 		return (
-			<div className={classNames('user-form-wrapper',{'user-form-wrapper--loading': isLoading})}>
-				{isLoading ? <Loader /> : (
+			<div className={classNames("user-form-wrapper", { "user-form-wrapper--loading": isLoading })}>
+				{isLoading ? (
+					<Loader />
+				) : (
 					<Form>
 						<FieldArray
 							name="email-sender"
@@ -59,10 +61,9 @@ export class WrappedForm extends Component {
 								</div>
 							)}
 						/>
-			</Form>
+					</Form>
 				)}
 			</div>
-			
 		);
 	};
 }
@@ -74,7 +75,5 @@ export const UserForm = withFormik({
 	handleSubmit: (values, { props }) => {
 		props.submitFunc(values);
 	},
-	mapPropsToValues: props => ({
-		name: "123",
-	}),
+	mapPropsToValues: () => ({}),
 })(TranslatedForm);

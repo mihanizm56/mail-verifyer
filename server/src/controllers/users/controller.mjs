@@ -5,7 +5,7 @@ import { createToken } from "../../services/tokens/index.mjs";
 import { sendEmail } from "../../services/emails/emails.mjs";
 
 export const put = async (req, res) => {
-	const sanitizedUsername = sanitize(req.body.username);
+	const sanitizedUsername = sanitize(req.body.name);
 	const sanitizedUserEmail = sanitize(req.body.email);
 	const newUserData = { username: sanitizedUsername, temporary: true };
 
@@ -41,6 +41,8 @@ export const put = async (req, res) => {
 };
 
 export const get = async (req, res) => {
+	console.log("get request server");
+
 	if (Boolean(res.locals.userTokenData.username)) {
 		const username = res.locals.userTokenData.username;
 
@@ -55,13 +57,11 @@ export const get = async (req, res) => {
 
 			await updateUserFromDb({ username, userData });
 
-			res
-				.status(200)
-				.json({ message: "success", error: "", data: { username: userData, temporary: userData.temporary } });
+			res.status(200).json({ message: "success", error: "", username });
 			return;
 		} catch (error) {
 			console.log("error", error);
-			res.status(500).json({ message: "fail", error: "internal server error", username: userData });
+			res.status(500).json({ message: "fail", error: "internal server error" });
 			return;
 		}
 	}

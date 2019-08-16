@@ -17,6 +17,6 @@ export const errorCreator = error => {
 			return translate("errors.server");
 
 		default:
-			return "";
+			return translate("errors.server");
 	}
 };

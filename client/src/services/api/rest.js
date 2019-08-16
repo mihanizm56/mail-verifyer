@@ -1,4 +1,8 @@
-export const getRequest = ({ endpoint }) => fetch(endpoint).then(data => data.json());
+export const getRequest = ({ endpoint }) =>
+	console.log("endpoint", endpoint) ||
+	fetch(endpoint)
+		.then(data => data.json())
+		.catch(error => console.log("////////////", error) || { error: "request-error", message: "" });
 
 export const putRequest = ({ endpoint, data }) => {
 	const paramsObject = {
@@ -11,5 +15,7 @@ export const putRequest = ({ endpoint, data }) => {
 		},
 		body: JSON.stringify(data),
 	};
-	return fetch(endpoint, paramsObject).then(data => data.json());
+	return fetch(endpoint, paramsObject)
+		.then(data => data.json())
+		.catch(error => ({ error: "request-error", message: "" }));
 };

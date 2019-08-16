@@ -6,7 +6,8 @@ import { SVGComponent, OpenSansText, LinkButton } from "../../../components";
 import { errorCreator } from "../../../utils/helpers/error-creator";
 import "./error-modal.css";
 
-export const ErrorModal = ({ errorText, handleButtonClick }) => {
+export const ErrorModal = ({ error, handleButtonClick }) => {
+	const errorText = errorCreator(error);
 	const { t: translate } = useTranslation();
 
 	return (

@@ -28,7 +28,8 @@ const limiter = rateLimit({
 /// middlewares
 app.use(limiter);
 app.use(helmet());
-process.env.NODE_ENV === "development" && app.use(cors({ origin: "*" }));
+// process.env.NODE_ENV === "development" && app.use(cors({ origin: "*" }));
+app.use(cors({ origin: "*" }));
 app.use(logger("dev"));
 app.use(express.json());
 app.use(bodyParser.json());

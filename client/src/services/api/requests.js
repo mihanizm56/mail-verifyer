@@ -1,7 +1,5 @@
-import { getRequest, putRequest } from "./requests";
-
-// export const ERROR_INTERNAL_SERVER = "internal server error";
-// export const ERROR_NOT_VALID_DATA = "enter the correct data";
+import { getRequest, putRequest } from "./rest";
+import { userRestEndpoint } from "./endpoints";
 
 const successMessage = {
 	message: "success",
@@ -17,27 +15,30 @@ const errorMessage = {
 
 export const validateUserRequest = ({ token }) => {
 	console.log("запрос на проверку токена пользователя", token);
+	return getRequest({
+		endpoint: `${userRestEndpoint}/${token}`,
+	});
+
 	// const resultOfRequest = yield call(getRequest, {
 	// 	enpoint: `${userRestEndpoint}/${action.payload}`,
 	// });
 
 	// return postRequest({ endpoint: `${HOST_AUTH}/login`, body });
-	return new Promise((resolve, reject) =>
-		setTimeout(() => {
-			console.log("check fetctUserValidate");
-			resolve(successMessage);
-			// reject({ error: "test-error" });
-		}, 1000)
-	);
+	// return new Promise((resolve, reject) =>
+	// 	setTimeout(() => {
+	// 		console.log("check fetctUserValidate");
+	// 		resolve({ message: "success", username: token });
+	// 	}, 1000)
+	// );
 };
 
 export const sendUserRequest = ({ body }) => {
 	console.log("запрос на отправку пользователя", body);
-	// return getRequest({ endpoint: `${HOST_API}/reviews` });
-	return new Promise(resolve =>
-		setTimeout(() => {
-			console.log("check getUserByToken");
-			resolve(successMessage);
-		}, 1000)
-	);
+	return putRequest({ endpoint: userRestEndpoint, data: body });
+	// return new Promise(resolve =>
+	// 	setTimeout(() => {
+	// 		console.log("check getUserByToken");
+	// 		resolve(successMessage);
+	// 	}, 1000)
+	// );
 };
