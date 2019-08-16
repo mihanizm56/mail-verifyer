@@ -1,8 +1,14 @@
-.form-wrapper {
+.user-form-wrapper{
     border-radius: 20px;
     border: 1px solid green;
     width: 800px;
-    min-height: 650px
+    min-height: 650px;
+}
+
+.user-form-wrapper--loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .user-form {
@@ -60,13 +66,13 @@
 }
 
 @media screen and (max-width: 1199px) and (min-width: 768px) {
-    .form-wrapper {
+    .user-form-wrapper {
         width: 90%;
     }
 }
 
 @media screen and (max-width: 767px) {
-    .form-wrapper {
+    .user-form-wrapper {
         width: 95%;
     }
     .user-form__row:first-child {

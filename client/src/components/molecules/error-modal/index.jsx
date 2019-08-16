@@ -14,7 +14,7 @@ export const ErrorModal = ({ errorText, handleButtonClick }) => {
 			<SVGComponent path={errorIcon} />
 			<div className="error-modal__content">
 				<OpenSansText text={translate("errors.error-type-label")} />
-				<OpenSansText text={errorCreator(errorText)} />
+				<OpenSansText text={errorText} />
 			</div>
 			<div className="error-modal__button">
 				<LinkButton to="/send" text={translate("buttons.send-new")} handleButtonClick={handleButtonClick} />

@@ -20,7 +20,9 @@ export function* validateUserEmailSaga(action) {
 
 	if (error) {
 		console.log("saga request failed", error);
-		yield put(setValidateError(error));
+		const errorText = errorCreator(error);
+
+		yield put(setValidateError(errorText));
 		yield put(addValidatorUsername(username));
 		yield put(fetchLoadingValidatorFinish());
 	}
