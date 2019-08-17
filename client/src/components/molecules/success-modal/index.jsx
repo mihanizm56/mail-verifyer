@@ -1,7 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { OpenSansText, LinkButton } from "../../../components";
-import { getSuccessText } from "../../../utils";
 import "./success-modal.css";
 
 export const SuccessModal = ({ handleButtonClick, successText, buttonClickRedirectsTo }) => {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import classNames from "classnames";
-import { Formik, Field, Form, ErrorMessage, FieldArray, withFormik } from "formik";
+import { Field, Form, ErrorMessage, FieldArray, withFormik } from "formik";
 import { withTranslation } from "react-i18next";
 import { OpenSansText, Button } from "../../../components";
 import "./user-form.css";

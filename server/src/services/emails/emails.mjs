@@ -47,4 +47,6 @@ export const sendEmail = async ({ token, email }) => {
 	}
 
 	nodemailerTransport.close();
+
+	return Promise.resolve("mail was sended");
 };

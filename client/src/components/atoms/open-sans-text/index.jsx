@@ -1,11 +1,10 @@
-import React, { createRef } from "react";
+import React from "react";
+import classNames from "classnames";
 import "./OpenSansText.css";
-import sn from "classnames";
-import { getClass } from "../../../utils";
 
 export const OpenSansText = ({ text, bold, isButton }: OpenSansTextProps) => (
 	<span
-		className={sn("open-sans-text", {
+		className={classNames("open-sans-text", {
 			"open-sans-text--button": isButton,
 		})}
 	>

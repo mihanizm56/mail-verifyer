@@ -5,13 +5,11 @@ import {
 	fetchLoadingValidatorStart,
 	fetchLoadingValidatorFinish,
 } from "./actions";
-import { getRequest, validateUserRequest } from "../../../services/api";
-import { sleep, errorCreator } from "../../../utils";
+import { validateUserRequest } from "../../../services/api";
 
 export function* validateUserEmailSaga(action) {
 	try {
 		yield put(fetchLoadingValidatorStart());
-		yield sleep(10000);
 		console.log("check validateUserEmailSaga", action);
 
 		const resultOfRequest = yield call(validateUserRequest, { token: action.payload });

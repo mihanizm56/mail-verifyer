@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { ERROR_INTERNAL_SERVER, ERROR_NOT_VALID_DATA, ERROR_EXIST_USER, ERROR_INVALID_TOKEN } from "./constants";
+import { ERROR_INTERNAL_SERVER, ERROR_NOT_VALID_DATA, ERROR_INVALID_TOKEN } from "./constants";
 
 export const errorCreator = error => {
 	console.log("errorCreator", error);

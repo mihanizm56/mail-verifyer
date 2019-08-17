@@ -1,14 +1,13 @@
 import { call, put } from "redux-saga/effects";
 import { addSenderUsername, setSenderError, fetchLoadingSenderStart, fetchLoadingSenderFinish } from "./actions";
-import { putRequest, sendUserRequest } from "../../../services/api";
-import { sleep, errorCreator } from "../../../utils";
+import { sendUserRequest } from "../../../services/api";
+import { sleep } from "../../../utils";
 
 export function* sendUserEmailSaga(action) {
 	yield put(fetchLoadingSenderStart());
 	yield sleep(2000);
 	console.log("check sendUserEmailSaga", action);
 	try {
-		// TODO insert the correct params to request
 		const resultOfRequest = yield call(sendUserRequest, { body: action.payload });
 		const { message, error } = resultOfRequest;
 		console.log("sendUserEmailSaga result", resultOfRequest);

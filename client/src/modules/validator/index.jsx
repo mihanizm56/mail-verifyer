@@ -18,7 +18,7 @@ class ValidatorContainer extends Component {
 	}
 
 	contentSwitcher = () => {
-		const { username, error, isLoading, t: translate } = this.props;
+		const { username, error, t: translate } = this.props;
 
 		if (Boolean(error)) {
 			return <ErrorModal errorText={error} />;

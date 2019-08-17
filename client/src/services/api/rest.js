@@ -1,8 +1,20 @@
-export const getRequest = ({ endpoint }) =>
-	console.log("endpoint", endpoint) ||
-	fetch(endpoint)
+import { TIMEOUT_VALUE } from "../../constants";
+
+const fetchWithTimer = async ({ request, timeoutValue }) => {
+	const timeoutException = new Promise(resolve =>
+		setTimeout(() => resolve({ error: "request-error", message: "" }), timeoutValue)
+	);
+
+	return Promise.race([request, timeoutException]);
+};
+
+export const getRequest = ({ endpoint }) => {
+	const request = fetch(endpoint)
 		.then(data => data.json())
-		.catch(error => console.log("////////////", error) || { error: "request-error", message: "" });
+		.catch(error => console.log("getRequest error", error) || { error: "request-error", message: "" });
+
+	return fetchWithTimer({ request, timeoutValue: TIMEOUT_VALUE });
+};
 
 export const putRequest = ({ endpoint, data }) => {
 	const paramsObject = {
@@ -15,7 +27,9 @@ export const putRequest = ({ endpoint, data }) => {
 		},
 		body: JSON.stringify(data),
 	};
-	return fetch(endpoint, paramsObject)
+	const request = fetch(endpoint, paramsObject)
 		.then(data => data.json())
 		.catch(error => ({ error: "request-error", message: "" }));
+
+	return fetchWithTimer({ request, timeoutValue: TIMEOUT_VALUE });
 };

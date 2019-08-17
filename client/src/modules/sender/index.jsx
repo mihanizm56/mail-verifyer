@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 import {
@@ -8,7 +8,7 @@ import {
 	getSenderUsername,
 	getSenderLoadingState,
 } from "../../redux/modules/sender";
-import { UserForm, UserBoxSender, Loader, ErrorModal, SuccessModal } from "../../components";
+import { UserForm, SuccessModal } from "../../components";
 import { REDIRECTION_URL_FOR_LINK_BUTTON } from "../../constants";
 import { errorCreator } from "../../utils/helpers/error-creator";
 
@@ -18,9 +18,9 @@ const createSendSuccessMessage = ({ username }) => {
 };
 
 const contentSwitcher = ({ username, error, fetchSendUserEmail, isLoading, createNewMail }) => {
-	let errorText = error && errorCreator(error)
+	let errorText = error && errorCreator(error);
 
-	if ( !Boolean(error) && Boolean(username) && !Boolean(isLoading)) {
+	if (!Boolean(error) && Boolean(username) && !Boolean(isLoading)) {
 		return (
 			<SuccessModal
 				buttonClickRedirectsTo={REDIRECTION_URL_FOR_LINK_BUTTON}
@@ -34,10 +34,10 @@ const contentSwitcher = ({ username, error, fetchSendUserEmail, isLoading, creat
 };
 
 const mapStateToProps = store => ({
-		isLoading: getSenderLoadingState(store),
-		error: getSenderErrorState(store),
-		username: getSenderUsername(store),
-})
+	isLoading: getSenderLoadingState(store),
+	error: getSenderErrorState(store),
+	username: getSenderUsername(store),
+});
 
 export const Sender = connect(
 	mapStateToProps,

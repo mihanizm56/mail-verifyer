@@ -1,7 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import errorIcon from "../../../assets/icons/icon-error.svg";
-import { Link } from "react-router-dom";
 import { SVGComponent, OpenSansText, LinkButton } from "../../../components";
 import { errorCreator } from "../../../utils/helpers/error-creator";
 import "./error-modal.css";
