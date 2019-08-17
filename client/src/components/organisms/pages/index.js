@@ -1,2 +1,2 @@
-export * from "./main-page";
+export * from "./send-page";
 export * from "./verification-page";

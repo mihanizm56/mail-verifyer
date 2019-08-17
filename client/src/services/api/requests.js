@@ -27,7 +27,7 @@ export const validateUserRequest = ({ token }) => {
 	// return new Promise((resolve, reject) =>
 	// 	setTimeout(() => {
 	// 		console.log("check fetctUserValidate");
-	// 		resolve({ message: "success", username: token });
+	// 		resolve(successMessage);
 	// 	}, 1000)
 	// );
 };

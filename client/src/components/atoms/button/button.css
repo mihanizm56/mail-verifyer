@@ -19,5 +19,3 @@
     background-color: var(--black);
     --color-button-text: #ffffff;
 }
-
-@media screen and (max-width: 767px) {}

@@ -10,6 +10,11 @@
     align-items: center;
     border-radius: 15px;
     text-decoration: none;
+    outline: none;
+}
+
+.link-button:focus {
+    box-shadow: 0 0 0 2pt grey;
 }
 
 .link-button:hover {
