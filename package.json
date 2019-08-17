@@ -12,6 +12,7 @@
     "server:prod": "cd server && npm run prod",
     "start:dev": "concurrently --kill-others-on-fail \"npm run client\" \"npm run server:dev\"",
     "start": "npm run server:prod",
+    "start:local": "cross-env-shell NODE_ENV=production npm run build:client && npm run copy && npm run server:prod",
     "stop": "taskkill /F /IM node.exe",
     "install:server": "cd server && npm i",
     "install:client": "cd client && npm i",
