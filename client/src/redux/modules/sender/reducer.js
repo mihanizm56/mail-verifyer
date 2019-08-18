@@ -5,6 +5,7 @@ import {
 	ERROR_SENDER_FETCH,
 	LOADING_START_SENDER,
 	LOADING_FINISH_SENDER,
+	ERROR_SENDER_RESET,
 	NEW_MESSAGE,
 } from "./constants";
 
@@ -28,6 +29,8 @@ const senderDataStorage = (state = initialState, action) => {
 			return set(loadingLens, false, state);
 		case ERROR_SENDER_FETCH:
 			return set(errorLens, action.payload, state);
+		case ERROR_SENDER_RESET:
+			return set(errorLens, null, state);
 		case NEW_MESSAGE:
 			return initialState;
 

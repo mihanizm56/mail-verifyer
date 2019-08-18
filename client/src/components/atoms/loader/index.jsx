@@ -6,6 +6,6 @@ import "./loader.css";
 
 export const Loader = () => (
 	<div className="loader">
-		<SVGComponent path={loaderIcon} className="loader"/>
+		<SVGComponent path={loaderIcon} className="loader" />
 	</div>
 );
