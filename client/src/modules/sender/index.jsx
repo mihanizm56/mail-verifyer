@@ -20,6 +20,12 @@ const createSendSuccessMessage = ({ username }) => {
 const contentSwitcher = ({ username, error, fetchSendUserEmail, isLoading, createNewMail }) => {
 	let errorText = error && errorCreator(error);
 
+	// const { t, i18n } = useTranslation();
+
+	// const changeLanguage = lng => {
+	// 	i18n.changeLanguage(lng);
+	// };
+
 	if (!Boolean(error) && Boolean(username) && !Boolean(isLoading)) {
 		return (
 			<SuccessModal
@@ -30,7 +36,15 @@ const contentSwitcher = ({ username, error, fetchSendUserEmail, isLoading, creat
 		);
 	}
 
-	return <UserForm error={errorText} isLoading={isLoading} submitFunc={fetchSendUserEmail} />;
+	return (
+		<div>
+			<UserForm error={errorText} isLoading={isLoading} submitFunc={fetchSendUserEmail} />
+			{/* <div>
+				<button onClick={() => changeLanguage("ru")}>ru</button>
+				<button onClick={() => changeLanguage("en")}>en</button>
+			</div> */}
+		</div>
+	);
 };
 
 const mapStateToProps = store => ({

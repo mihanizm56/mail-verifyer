@@ -9,27 +9,29 @@ const fetchWithTimer = async ({ request, timeoutValue }) => {
 };
 
 export const getRequest = ({ endpoint }) => {
-	const request = fetch(endpoint)
-		.then(data => data.json())
-		.catch(error => console.log("getRequest error", error) || { error: "request-error", message: "" });
+	return Promise.resolve({ error: "error" });
+	// const request = fetch(endpoint)
+	// 	.then(data => data.json())
+	// 	.catch(error => console.log("getRequest error", error) || { error: "request-error", message: "" });
 
-	return fetchWithTimer({ request, timeoutValue: TIMEOUT_VALUE });
+	// return fetchWithTimer({ request, timeoutValue: TIMEOUT_VALUE });
 };
 
 export const putRequest = ({ endpoint, data }) => {
-	const paramsObject = {
-		method: "PUT",
-		headers: {
-			Accept: "application/json",
-			"Access-Control-Allow-Origin": "*",
-			"Content-Type": "application/json",
-			"Cache-Control": "no-cache",
-		},
-		body: JSON.stringify(data),
-	};
-	const request = fetch(endpoint, paramsObject)
-		.then(data => data.json())
-		.catch(error => ({ error: "request-error", message: "" }));
+	return Promise.resolve({ error: "error" });
+	// const paramsObject = {
+	// 	method: "PUT",
+	// 	headers: {
+	// 		Accept: "application/json",
+	// 		"Access-Control-Allow-Origin": "*",
+	// 		"Content-Type": "application/json",
+	// 		"Cache-Control": "no-cache",
+	// 	},
+	// 	body: JSON.stringify(data),
+	// };
+	// const request = fetch(endpoint, paramsObject)
+	// 	.then(data => data.json())
+	// 	.catch(error => ({ error: "request-error", message: "" }));
 
-	return fetchWithTimer({ request, timeoutValue: TIMEOUT_VALUE });
+	// return fetchWithTimer({ request, timeoutValue: TIMEOUT_VALUE });
 };

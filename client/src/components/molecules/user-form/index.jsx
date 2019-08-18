@@ -8,12 +8,29 @@ import { Loader } from "../../atoms";
 
 export class WrappedForm extends Component {
 	componentDidUpdate(prevProps) {
-		const { error, setErrors } = this.props;
+		const {
+			error,
+			setErrors,
+			resetForm,
+			values: { username, email },
+		} = this.props;
 
-		if (error && prevProps.error !== error) {
-			console.log("//////////////////", error);
-
-			setErrors({ name: error, email: error });
+		console.log(
+			"//////////////////",
+			Boolean(
+				error &&
+					// prevProps.error !== error &&
+					(prevProps.values.username !== username || prevProps.values.email !== email)
+			)
+		);
+		// TODO CLEAN THE ERROR IN SAGA !!!!!!!!!!!!!
+		if (
+			error &&
+			prevProps.error !== error
+			// (prevProps.values.username !== username || prevProps.values.email !== email)
+		) {
+			// resetForm();
+			setErrors({ username: error, email: error });
 		}
 	}
 
@@ -35,13 +52,13 @@ export class WrappedForm extends Component {
 									</div>
 									<div className="user-form__row">
 										<div className="user-form__field-block">
-											<label htmlFor="name" className="user-form__label">
+											<label htmlFor="username" className="user-form__label">
 												<OpenSansText text={translate("form.labels.username")} />
 											</label>
-											<Field className="user-form__text-field" name="name" value={values.name} type="text" />
+											<Field className="user-form__text-field" name="username" type="text" />
 										</div>
 										<div className="user-form__error">
-											<ErrorMessage name="name" component="div" className="user-form__error-text" />
+											<ErrorMessage name="username" component="div" className="user-form__error-text" />
 										</div>
 									</div>
 									<div className="user-form__row">
@@ -49,7 +66,7 @@ export class WrappedForm extends Component {
 											<label htmlFor="email" className="user-form__label">
 												<OpenSansText text={translate("form.labels.email")} />
 											</label>
-											<Field className="user-form__text-field" name="email" value={values.email} type="email" />
+											<Field className="user-form__text-field" name="email" />
 										</div>
 										<div className="user-form__error">
 											<ErrorMessage name="email" component="div" className="user-form__error-text" />
@@ -75,5 +92,10 @@ export const UserForm = withFormik({
 	handleSubmit: (values, { props }) => {
 		props.submitFunc(values);
 	},
-	mapPropsToValues: () => ({}),
+	mapPropsToValues: props => {
+		return {
+			email: "",
+			username: "",
+		};
+	},
 })(TranslatedForm);

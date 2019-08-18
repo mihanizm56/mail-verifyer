@@ -5,7 +5,7 @@ import { createToken } from "../../services/tokens/index.mjs";
 import { sendEmail } from "../../services/emails/emails.mjs";
 
 export const put = async (req, res) => {
-	const sanitizedUsername = sanitize(req.body.name);
+	const sanitizedUsername = sanitize(req.body.username);
 	const sanitizedUserEmail = sanitize(req.body.email);
 	const newUserData = { username: sanitizedUsername, temporary: true };
 
