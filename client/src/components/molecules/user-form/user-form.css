@@ -1,5 +1,7 @@
 .user-form-wrapper {
-    /* display: flex; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 20px;
     border: 1px solid grey;
     width: 85vw;
@@ -63,7 +65,7 @@
 
 @media screen and (max-width: 767px) {
     .user-form-wrapper {
-        width: 95%;
+        width: 95vw;
         max-height: 95vh;
         max-width: 460px;
     }

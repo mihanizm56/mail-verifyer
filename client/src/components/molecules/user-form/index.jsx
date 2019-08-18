@@ -10,19 +10,19 @@ import { ErrorMessageCustom } from "./error-message-custom";
 
 const UserSchema = Yup.object().shape({
 	username: Yup.string()
-		.min(10, "Too Short!")
-		.max(50, "Too Long!")
-		.required("Required"),
+		.min(2, "short")
+		.max(50, "long")
+		.required("required"),
 	email: Yup.string()
-		.email("Invalid email")
-		.required("Required"),
+		.min(2, "short")
+		.max(50, "long")
+		.email("email")
+		.required("required"),
 });
 
 export const WrappedForm = memo(({ values, isLoading, submissionError, errors, t: translate }) => {
 	const usernameError = Boolean(errors) && errors.username;
-	const emailError = Boolean(errors) && errors.email;
-
-	console.log("test", usernameError);
+	const emailError = Boolean(errors) && Boolean(errors.email) && translate(`validation-errors.email.${errors.email}`);
 
 	return (
 		<div className={classNames("user-form-wrapper", { "user-form-wrapper--loading": isLoading })}>

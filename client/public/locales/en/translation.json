@@ -21,5 +21,19 @@
   "buttons":{
     "send-new":"Send new verification",
     "validate":"Send verification"
+  },
+  "validation-errors":{
+    "username":{
+      "short":"Username should contain more letters",
+      "long":"Username should contain less letters",
+      "required":"Username is the required field"
+    },
+    "email":{
+      "short":"Email should contain more letters",
+      "long":"Email should contain less letters",
+      "email":"Email is incorrect",
+      "required":"Email is a required field"
+    }
   }
+  
 }
