@@ -17,4 +17,5 @@ package-lock.json
 
 # variables
 .env
-/server/src/services/emails/config.json
+/server/.env
+/client/.env

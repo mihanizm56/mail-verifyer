@@ -2,7 +2,7 @@ import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 import path from "path";
 import hbs from "nodemailer-express-handlebars";
-import config from "./config.json";
+import config from "./config.mjs";
 import { domain } from "../../services/variables/index.mjs";
 
 dotenv.config();
