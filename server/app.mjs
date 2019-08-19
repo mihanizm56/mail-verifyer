@@ -91,13 +91,14 @@ const startApp = () => {
 
 	if (process.env.NODE_ENV === "production") {
 		if (cluster.isMaster) {
-			let cpus = os.cpus().length;
-			console.log(`your machine has ${os.cpus().length} cores`);
+			const cpuArray = os.cpus();
+			const numberOfCPUs = cpuArray.length;
+			console.log(`your machine has ${numberOfCPUs} cores`);
 
-			for (let i = 0; i < cpus; i++) {
-				console.log(`cluster ${i} started`);
+			cpuArray.forEach((cpu, index) => {
+				console.log(`cluster ${index} started`);
 				cluster.fork();
-			}
+			});
 
 			cluster.on("exit", (worker, code) => {
 				console.log(`Worker ${worker.id} finished. Exit code: ${code}`);

@@ -1,0 +1,38 @@
+{
+  "errors":{
+    "title":"Sorry, there is an error",
+    "server":"Internal server error",
+    "username":"Please, enter the correct login",
+    "email":"Please, enter the correct email",
+    "userdata":"Please, enter the correct user data",
+    "error-type-label":"Error type"
+  },
+  "success":{
+    "send-email":"The verification message was sent to the {{username}} email",
+    "verified":"User {{username}} was successfully verified"
+  },
+  "form":{
+    "title":"Please, enter the data",
+    "labels":{
+      "username":"Username",
+      "email":"Email"
+    }
+  },
+  "buttons":{
+    "send-new":"Send new verification",
+    "validate":"Send verification"
+  },
+  "validation-errors":{
+    "username":{
+      "short":"Username should contain more letters",
+      "long":"Username should contain less letters",
+      "required":"Username is the required field"
+    },
+    "email":{
+      "short":"Email should contain more letters",
+      "long":"Email should contain less letters",
+      "email":"Email is incorrect",
+      "required":"Email is a required field"
+    }
+  }
+}
