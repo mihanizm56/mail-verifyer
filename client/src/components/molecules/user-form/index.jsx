@@ -21,7 +21,8 @@ const UserSchema = Yup.object().shape({
 });
 
 export const WrappedForm = memo(({ values, isLoading, submissionError, errors, t: translate }) => {
-	const usernameError = Boolean(errors) && errors.username;
+	const usernameError =
+		Boolean(errors) && Boolean(errors.username) && translate(`validation-errors.username.${errors.username}`);
 	const emailError = Boolean(errors) && Boolean(errors.email) && translate(`validation-errors.email.${errors.email}`);
 
 	return (
