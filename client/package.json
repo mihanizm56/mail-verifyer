@@ -37,6 +37,7 @@
     "test:coverage": "react-scripts test --coverage",
     "precommit": "lint-staged",
     "test:all": "react-scripts test --env=jsdom",
+    "test:part": "react-scripts test --u",
     "push": "cd .. && npm run push && cd client"
   },
   "browserslist": {

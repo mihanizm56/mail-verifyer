@@ -1,13 +1,13 @@
-import React from "react";
+import React, { memo } from "react";
 import { OpenSansText } from "../../../components";
 import classNames from "classnames";
 import "./button.css";
 
-export const Button = ({ text, handleButtonClick, type }) => (
+export const Button = memo(({ text, handleButtonClick, type }) => (
 	<button type={type} className={classNames("button")} onClick={handleButtonClick}>
 		<OpenSansText text={text} isButton />
 	</button>
-);
+));
 
 Button.defaultProps = {
 	handleButtonClick: () => console.log("default handleButtonClick"),
