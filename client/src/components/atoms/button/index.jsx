@@ -8,7 +8,3 @@ export const Button = memo(({ text, handleButtonClick, type }) => (
 		<OpenSansText text={text} isButton />
 	</button>
 ));
-
-Button.defaultProps = {
-	handleButtonClick: () => console.log("default handleButtonClick"),
-};
