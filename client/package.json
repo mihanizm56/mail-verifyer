@@ -57,6 +57,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-react-app": "^9.0.1",
+    "cz-conventional-changelog": "^3.0.2",
     "enzyme": "3.7.0",
     "enzyme-adapter-react-16": "1.7.0",
     "enzyme-to-json": "3.3.4",
@@ -81,9 +82,9 @@
       "enzyme-to-json/serializer"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run test"
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }
