@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "heroku-prebuild": "npm run install:all",
-    "build":"npm run build:client && npm run copy",
+    "build": "npm run build:client && npm run copy",
     "start": "npm run server:prod",
     "copy": "cd scripts/copier && node --experimental-modules interface.mjs",
     "client": "cd client && npm start",

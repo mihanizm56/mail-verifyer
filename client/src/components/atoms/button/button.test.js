@@ -1,11 +1,15 @@
-import React from "react";
+import React,{createElement} from "react";
 import { shallow } from "enzyme";
 import { Button } from "../button";
 
-jest.mock("../open-sans-text", () => "OpenSansText");
+jest.doMock("../open-sans-text", ()=>{
+	const OpenSansText = (props) => createElement('OpenSansText', props);
+	return {OpenSansText}
+});
 
 describe("test Button", () => {
 	beforeEach(() => {
+		jest.resetModules();
 		jest.clearAllMocks();
 	});
 
