@@ -6,7 +6,7 @@ import { OpenSansText, Button } from "../../../components";
 import * as Yup from "yup";
 import "./user-form.css";
 import { Loader } from "../../atoms";
-import { ErrorMessageCustom } from "./error-message-custom";
+import { ErrorMessageCustom } from "./components/error-message-custom";
 
 const UserSchema = Yup.object().shape({
 	username: Yup.string()

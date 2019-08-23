@@ -1,17 +1,12 @@
 import React, { createElement } from "react";
 import { shallow } from "enzyme";
-import { ErrorModal } from "../error-modal";
+import { ErrorModal } from ".";
 
 describe("test ErrorModal", () => {
 	beforeEach(() => {
 		jest.resetModules();
 		jest.clearAllMocks();
 	});
-
-	// SVGIconMock
-	// OpenSansTextMock
-	// OpenSansTextMock
-	// LinkButtonMock
 
 	describe("test render contract", () => {
 		it("render snap with all props", () => {

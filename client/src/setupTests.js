@@ -8,6 +8,24 @@ jest.mock("./components/atoms", () => ({
 	SVGIcon: "SVGIconMock",
 }));
 
+jest.mock("./components/molecules", () => ({
+	ErrorModal: "ErrorModalMock",
+	SuccessModal: "SuccessModalMock",
+	UserForm: "UserFormMock",
+}));
+
+// jest.mock("./components/organisms", () => ({
+// 	ErrorModal: "ErrorModalMock",
+// 	SuccessModal: "SuccessModalMock",
+// 	UserForm: "UserFormMock",
+// }));
+
+jest.mock("./modules", () => ({
+	App: "App",
+	Sender: "Sender",
+	Validator: "Validator",
+}));
+
 jest.mock("react-router-dom", () => ({
 	NavLink: "NavLinkMock",
 }));

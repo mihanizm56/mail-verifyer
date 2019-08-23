@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test VerificationPage test render contract render snap with all props 1`] = `
+<div
+  className="verification-page"
+>
+  <Validator
+    token="test token"
+  />
+</div>
+`;

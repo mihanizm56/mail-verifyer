@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test SuccessModal test render contract render snap with all props 1`] = `
+<div
+  className="success-modal"
+>
+  <div
+    className="success-modal__text"
+  >
+    <OpenSansTextMock
+      text="success text"
+    />
+  </div>
+  <div
+    className="success-modal__button"
+  >
+    <LinkButtonMock
+      handleButtonClick={[MockFunction]}
+      text="buttons.send-new"
+      to="/test"
+    />
+  </div>
+</div>
+`;

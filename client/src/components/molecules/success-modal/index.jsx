@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { OpenSansText, LinkButton } from "../../../components";
 import "./success-modal.css";
 
-export const SuccessModal = ({ handleButtonClick, successText, buttonClickRedirectsTo }) => {
+export const SuccessModal = memo(({ handleButtonClick, successText, buttonClickRedirectsTo }) => {
 	const { t: translate } = useTranslation();
 
 	return (
@@ -20,4 +20,4 @@ export const SuccessModal = ({ handleButtonClick, successText, buttonClickRedire
 			</div>
 		</div>
 	);
-};
+});

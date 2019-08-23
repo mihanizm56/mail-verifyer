@@ -1,5 +1,5 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { MainPage } from "../../../../components";
+import { SendPage } from "../../../../components";
 
-export const MainPageRoute = () => <Route component={MainPage} />;
+export const SendPageRoute = () => <Route component={SendPage} />;
