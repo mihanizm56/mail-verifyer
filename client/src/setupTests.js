@@ -5,7 +5,7 @@ jest.mock("./components/atoms", () => ({
 	OpenSansText: "OpenSansTextMock",
 	Button: "ButtonMock",
 	LinkButton: "LinkButtonMock",
-	SVGIcon: "SVGIconЬщсл",
+	SVGIcon: "SVGIconMock",
 }));
 
 jest.mock("react-router-dom", () => ({

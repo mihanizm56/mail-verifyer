@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test ErrorModal test render contract render snap with all props 1`] = `
+<div
+  className="error-modal"
+>
+  <SVGIconMock
+    path="icon-error.svg"
+  />
+  <div
+    className="error-modal__content"
+  >
+    <OpenSansTextMock
+      text="errors.error-type-label"
+    />
+    <OpenSansTextMock
+      text="errors.server"
+    />
+  </div>
+  <div
+    className="error-modal__button"
+  >
+    <LinkButtonMock
+      handleButtonClick={[MockFunction]}
+      text="buttons.send-new"
+      to="/send"
+    />
+  </div>
+</div>
+`;
