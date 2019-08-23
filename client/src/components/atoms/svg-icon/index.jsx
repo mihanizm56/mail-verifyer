@@ -1,12 +1,12 @@
 //
 import React, { memo } from "react";
-import "./SVGComponent.css";
+import "./SVGIcon.css";
 
-type SVGType = {
-	path: string,
-};
+// type SVGType = {
+// 	path: string,
+// };
 
-export const SVGComponent = memo(({ path }: SVGType) => (
+export const SVGIcon = memo(({ path }) => (
 	<object type="image/svg+xml" data={`${path}`} className="icon" alt="icon">
 		>Your browser does not support SVGs
 	</object>

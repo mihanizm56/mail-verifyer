@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test OpenSansText test render contract render snap with all props if is button 1`] = `
+<span
+  className="open-sans-text open-sans-text--button"
+>
+  test_text
+</span>
+`;
+
+exports[`test OpenSansText test render contract render snap with all props if isnt a button and not bold 1`] = `
+<span
+  className="open-sans-text"
+>
+  test_text_123
+</span>
+`;

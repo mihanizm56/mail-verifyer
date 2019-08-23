@@ -2,11 +2,6 @@ import React, { createElement } from "react";
 import { shallow } from "enzyme";
 import { Button } from "../button";
 
-jest.doMock("../open-sans-text", () => {
-	const OpenSansText = props => createElement("OpenSansText", props);
-	return { OpenSansText };
-});
-
 describe("test Button", () => {
 	beforeEach(() => {
 		jest.resetModules();
@@ -32,7 +27,7 @@ describe("test Button", () => {
 			};
 			const component = shallow(<Button {...props} />);
 
-			expect(component.find("OpenSansText").length).toBe(1);
+			expect(component.find("OpenSansTextMock").length).toBe(1);
 		});
 	});
 	describe("test props contract", () => {
@@ -56,9 +51,9 @@ describe("test Button", () => {
 			};
 			const component = shallow(<Button {...props} />);
 			const button = component.find("button");
-			const typeProp = button.prop("onClick");
+			const onClickProp = button.prop("onClick");
 
-			expect(typeProp).toEqual(props.handleButtonClick);
+			expect(onClickProp).toEqual(props.handleButtonClick);
 		});
 		it("set text prop to the OpenSansText", () => {
 			const props = {
@@ -67,10 +62,10 @@ describe("test Button", () => {
 				type: "submit",
 			};
 			const component = shallow(<Button {...props} />);
-			const button = component.find("OpenSansText");
-			const typeProp = button.prop("text");
+			const button = component.find("OpenSansTextMock");
+			const textProp = button.prop("text");
 
-			expect(typeProp).toEqual(props.text);
+			expect(textProp).toEqual(props.text);
 		});
 		it("set isButton prop to the OpenSansText", () => {
 			const props = {
@@ -79,10 +74,10 @@ describe("test Button", () => {
 				type: "submit",
 			};
 			const component = shallow(<Button {...props} />);
-			const button = component.find("OpenSansText");
-			const typeProp = button.prop("isButton");
+			const button = component.find("OpenSansTextMock");
+			const isButtonProp = button.prop("isButton");
 
-			expect(typeProp).toBeTruthy();
+			expect(isButtonProp).toBeTruthy();
 		});
 	});
 	describe("test callback contract", () => {

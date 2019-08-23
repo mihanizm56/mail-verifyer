@@ -6,7 +6,7 @@ exports[`test Button test render contract render snap with all props 1`] = `
   onClick={[MockFunction]}
   type="submit"
 >
-  <OpenSansText
+  <OpenSansTextMock
     isButton={true}
     text="test_text"
   />

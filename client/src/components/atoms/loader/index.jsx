@@ -1,11 +1,11 @@
-import React from "react";
-import { SVGComponent } from "../svg-icon";
+import React, { memo } from "react";
+import { SVGIcon } from "../svg-icon";
 import loaderIcon from "../../../assets/icons/icon-loading.svg";
 import "../../../styles/keyframes.css";
 import "./loader.css";
 
-export const Loader = () => (
+export const Loader = memo(() => (
 	<div className="loader">
-		<SVGComponent path={loaderIcon} className="loader" />
+		<SVGIcon path={loaderIcon} className="loader" />
 	</div>
-);
+));
