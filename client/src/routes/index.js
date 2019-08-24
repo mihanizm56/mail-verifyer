@@ -1,2 +1,2 @@
-export * from "./master-router";
-export * from "./slave-router";
+export * from "./root-router";
+export * from "./pages-routes";

@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Redirect } from "react-router-dom";
-import { SendPageRoute, VerificationPageRoute } from "../slave-router";
+import { SendPageRoute, VerificationPageRoute } from "../pages-routes";
 
 export const MainRouterLayout = () => {
 	return (
