@@ -1,6 +1,5 @@
 import React, { memo } from "react";
 import { connect } from "react-redux";
-import { useTranslation } from "react-i18next";
 import {
 	fetchSendUserEmail,
 	createNewMail,

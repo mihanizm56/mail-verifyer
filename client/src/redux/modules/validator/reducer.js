@@ -1,11 +1,6 @@
 import lensPath from "ramda/src/lensPath";
 import set from "ramda/src/set";
-import {
-	ADD_VALIDATOR_USERNAME,
-	ERROR_VALIDATE_FETCH,
-	LOADING_START_VALIDATOR,
-	LOADING_FINISH_VALIDATOR,
-} from "./constants";
+import { ADD_VALIDATOR_USERNAME, ERROR_VALIDATE_FETCH } from "./constants";
 
 const initialState = {
 	error: null,

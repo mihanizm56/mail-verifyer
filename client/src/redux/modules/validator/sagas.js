@@ -1,10 +1,5 @@
 import { call, put } from "redux-saga/effects";
-import {
-	addValidatorUsername,
-	setValidateError,
-	fetchLoadingValidatorStart,
-	fetchLoadingValidatorFinish,
-} from "./actions";
+import { addValidatorUsername, setValidateError } from "./actions";
 import { validateUserRequest } from "../../../services/api";
 
 export function* validateUserEmailSaga(action) {

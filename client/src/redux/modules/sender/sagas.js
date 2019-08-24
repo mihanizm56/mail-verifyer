@@ -7,7 +7,6 @@ import {
 	resetSenderError,
 } from "./actions";
 import { sendUserRequest } from "../../../services/api";
-import { sleep } from "../../../utils";
 import { ERROR_INTERNAL_SERVER } from "../../../constants";
 
 const sleep = ms => setTimeout(() => {}, ms);
