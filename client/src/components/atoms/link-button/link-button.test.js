@@ -4,7 +4,6 @@ import { LinkButton } from "../link-button";
 
 describe("test LinkButton", () => {
 	beforeEach(() => {
-		jest.resetModules();
 		jest.clearAllMocks();
 	});
 

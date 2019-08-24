@@ -3,11 +3,6 @@ import { shallow } from "enzyme";
 import { OpenSansText } from "../open-sans-text";
 
 describe("test OpenSansText", () => {
-	beforeEach(() => {
-		jest.resetModules();
-		jest.clearAllMocks();
-	});
-
 	describe("test render contract", () => {
 		it("render snap with all props if is button", () => {
 			const props = {

@@ -4,7 +4,6 @@ import { SuccessModal } from ".";
 
 describe("test SuccessModal", () => {
 	beforeEach(() => {
-		jest.resetModules();
 		jest.clearAllMocks();
 	});
 

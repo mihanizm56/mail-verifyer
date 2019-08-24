@@ -4,7 +4,6 @@ import { Button } from "../button";
 
 describe("test Button", () => {
 	beforeEach(() => {
-		jest.resetModules();
 		jest.clearAllMocks();
 	});
 

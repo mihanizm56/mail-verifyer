@@ -1,19 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test Button test render contract render snap with all props 1`] = `
-<NavLinkMock
-  className="link-button"
-  exact={true}
-  onClick={[MockFunction]}
-  to="/test"
->
-  <OpenSansTextMock
-    isButton={true}
-    text="test_lnk_button"
-  />
-</NavLinkMock>
-`;
-
 exports[`test LinkButton test render contract render snap with all props 1`] = `
 <NavLinkMock
   className="link-button"

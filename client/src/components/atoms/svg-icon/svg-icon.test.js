@@ -3,11 +3,6 @@ import { shallow } from "enzyme";
 import { SVGIcon } from "../svg-icon";
 
 describe("test SVGIcon", () => {
-	beforeEach(() => {
-		jest.resetModules();
-		jest.clearAllMocks();
-	});
-
 	describe("test render contract", () => {
 		it("render snap with all props if is button", () => {
 			const props = {

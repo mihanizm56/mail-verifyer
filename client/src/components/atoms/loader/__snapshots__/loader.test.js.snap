@@ -1,16 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test Button test render contract render snap with all props 1`] = `
-<div
-  className="loader"
->
-  <Component
-    className="loader"
-    path="icon-loading.svg"
-  />
-</div>
-`;
-
 exports[`test Loader test render contract render snap with all props 1`] = `
 <div
   className="loader"

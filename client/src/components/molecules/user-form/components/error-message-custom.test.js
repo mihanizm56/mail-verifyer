@@ -4,7 +4,6 @@ import { ErrorMessageCustom } from "./error-message-custom";
 
 describe("test ErrorMessageCustom", () => {
 	beforeEach(() => {
-		jest.resetModules();
 		jest.clearAllMocks();
 	});
 
