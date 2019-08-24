@@ -26,6 +26,10 @@ jest.mock("./modules", () => ({
 	Validator: "Validator",
 }));
 
+jest.mock("./routes", () => ({
+	MainRouterLayout: "MainRouterLayout",
+}));
+
 jest.mock("react-router-dom", () => ({
 	NavLink: "NavLinkMock",
 }));

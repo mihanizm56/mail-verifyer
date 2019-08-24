@@ -3,11 +3,6 @@ import { shallow } from "enzyme";
 import { VerificationPage } from "../verification-page";
 
 describe("test VerificationPage", () => {
-	beforeEach(() => {
-		jest.resetModules();
-		jest.clearAllMocks();
-	});
-
 	describe("test render contract", () => {
 		it("render snap with all props", () => {
 			const props = {

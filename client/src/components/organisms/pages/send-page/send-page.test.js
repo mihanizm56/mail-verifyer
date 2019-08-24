@@ -3,11 +3,6 @@ import { shallow } from "enzyme";
 import { SendPage } from "../send-page";
 
 describe("test SendPage", () => {
-	beforeEach(() => {
-		jest.resetModules();
-		jest.clearAllMocks();
-	});
-
 	describe("test render contract", () => {
 		it("render snap with all props", () => {
 			const component = shallow(<SendPage />);
