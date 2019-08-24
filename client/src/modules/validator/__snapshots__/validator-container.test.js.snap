@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test ValidatorContainer test render contract snap test with all props 1`] = `
+<SuccessModalMock
+  buttonClickRedirectsTo="/send"
+  successText="success.verified"
+/>
+`;

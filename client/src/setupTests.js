@@ -6,6 +6,7 @@ jest.mock("./components/atoms", () => ({
 	Button: "ButtonMock",
 	LinkButton: "LinkButtonMock",
 	SVGIcon: "SVGIconMock",
+	Loader: "LoaderMock",
 }));
 
 jest.mock("./components/molecules", () => ({

@@ -10,6 +10,8 @@ import { sendUserRequest } from "../../../services/api";
 import { sleep } from "../../../utils";
 import { ERROR_INTERNAL_SERVER } from "../../../constants";
 
+const sleep = ms => setTimeout(() => {}, ms);
+
 export function* sendUserEmailSaga(action) {
 	yield put(fetchLoadingSenderStart());
 	yield put(resetSenderError());
