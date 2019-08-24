@@ -11,13 +11,9 @@ import {
 import { UserForm, SuccessModal } from "../../components";
 import { REDIRECTION_URL_FOR_LINK_BUTTON } from "../../constants";
 import { errorCreator } from "../../utils/helpers/error-creator";
+import { createSendSuccessMessage } from "../../utils/helpers/success-send-message-creator";
 
-const createSendSuccessMessage = ({ username }) => {
-	const { t: translate } = useTranslation();
-	return translate("success.send-email", { username });
-};
-
-const contentSwitcher = ({ username, error, fetchSendUserEmail, isLoading, createNewMail }) => {
+export const SenderContainer = memo(({ username, error, fetchSendUserEmail, isLoading, createNewMail }) => {
 	let errorText = error && errorCreator(error);
 
 	if (!Boolean(error) && Boolean(username) && !Boolean(isLoading)) {
@@ -31,11 +27,11 @@ const contentSwitcher = ({ username, error, fetchSendUserEmail, isLoading, creat
 	}
 
 	return (
-		<div>
-			<UserForm submissionError={errorText} isLoading={isLoading} submitFunc={fetchSendUserEmail} />
-		</div>
+		// <div> check if necessary
+		<UserForm submissionError={errorText} isLoading={isLoading} submitFunc={fetchSendUserEmail} />
+		// </div>
 	);
-};
+});
 
 const mapStateToProps = store => ({
 	isLoading: getSenderLoadingState(store),
@@ -46,4 +42,4 @@ const mapStateToProps = store => ({
 export const Sender = connect(
 	mapStateToProps,
 	{ fetchSendUserEmail, createNewMail }
-)(contentSwitcher);
+)(SenderContainer);

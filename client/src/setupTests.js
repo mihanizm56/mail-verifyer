@@ -14,11 +14,9 @@ jest.mock("./components/molecules", () => ({
 	UserForm: "UserFormMock",
 }));
 
-// jest.mock("./components/organisms", () => ({
-// 	ErrorModal: "ErrorModalMock",
-// 	SuccessModal: "SuccessModalMock",
-// 	UserForm: "UserFormMock",
-// }));
+jest.mock("./components/organisms", () => ({
+	MainWrapper: "MainWrapperMock",
+}));
 
 jest.mock("./modules", () => ({
 	App: "App",
@@ -32,6 +30,10 @@ jest.mock("./routes", () => ({
 
 jest.mock("react-router-dom", () => ({
 	NavLink: "NavLinkMock",
+}));
+
+jest.mock("react-redux", () => ({
+	connect: () => Component => Component,
 }));
 
 jest.mock("react", () => {

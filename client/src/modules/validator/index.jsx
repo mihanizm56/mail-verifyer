@@ -10,14 +10,14 @@ import {
 import { SuccessModal, ErrorModal, Loader } from "../../components";
 import { REDIRECTION_URL_FOR_LINK_BUTTON } from "../../constants";
 
-class ValidatorContainer extends Component {
-	componentDidMount() {
+export class ValidatorContainer extends Component {
+	componentDidMount = () => {
 		const { fetchValidateUserEmail, token } = this.props;
 
 		fetchValidateUserEmail(token);
-	}
+	};
 
-	contentSwitcher = () => {
+	render = () => {
 		const { username, error, t: translate } = this.props;
 
 		if (Boolean(error)) {
@@ -35,8 +35,6 @@ class ValidatorContainer extends Component {
 
 		return <Loader />;
 	};
-
-	render = () => this.contentSwitcher();
 }
 
 const mapStateToProps = store => ({
