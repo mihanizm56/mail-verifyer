@@ -14,7 +14,7 @@ const sleep = ms => setTimeout(() => {}, ms);
 export function* sendUserEmailSaga(action) {
 	yield put(fetchLoadingSenderStart());
 	yield put(resetSenderError());
-	yield sleep(5000);
+	yield sleep(2000);
 
 	try {
 		const resultOfRequest = yield call(sendUserRequest, { body: action.payload });
