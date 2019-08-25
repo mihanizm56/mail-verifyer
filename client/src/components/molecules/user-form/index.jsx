@@ -3,22 +3,10 @@ import classNames from "classnames";
 import { Field, Form, FieldArray, withFormik } from "formik";
 import { withTranslation } from "react-i18next";
 import { OpenSansText, Button } from "../../../components";
-import * as Yup from "yup";
 import "./user-form.css";
 import { Loader } from "../../atoms";
 import { ErrorMessageCustom } from "./components/error-message-custom";
-
-const UserSchema = Yup.object().shape({
-	username: Yup.string()
-		.min(2, "short")
-		.max(50, "long")
-		.required("required"),
-	email: Yup.string()
-		.min(2, "short")
-		.max(50, "long")
-		.email("email")
-		.required("required"),
-});
+import { UserSchema } from "../../../services/validation";
 
 export const WrappedForm = memo(({ values, isLoading, submissionError, errors, t: translate }) => {
 	const usernameError =
