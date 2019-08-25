@@ -10,7 +10,7 @@ describe("test ValidatorContainer", () => {
 	describe("test render contract", () => {
 		it("snap test with all props", () => {
 			const props = {
-				fetchValidateUserEmail: jest.fn(),
+				fetchValidateUserToken: jest.fn(),
 				token: "token",
 				username: "test username",
 				error: "",
@@ -23,7 +23,7 @@ describe("test ValidatorContainer", () => {
 		});
 		it("render ErrorModal when error prop was given", () => {
 			const props = {
-				fetchValidateUserEmail: jest.fn(),
+				fetchValidateUserToken: jest.fn(),
 				token: "token",
 				username: "test username",
 				error: "test-error",
@@ -37,7 +37,7 @@ describe("test ValidatorContainer", () => {
 		});
 		it("render SuccessModal when username prop was given", () => {
 			const props = {
-				fetchValidateUserEmail: jest.fn(),
+				fetchValidateUserToken: jest.fn(),
 				token: "token",
 				username: "test username",
 				error: "",
@@ -51,7 +51,7 @@ describe("test ValidatorContainer", () => {
 		});
 		it("render Loader when no username and no error was given", () => {
 			const props = {
-				fetchValidateUserEmail: jest.fn(),
+				fetchValidateUserToken: jest.fn(),
 				token: "token",
 				username: "",
 				error: "",
@@ -67,7 +67,7 @@ describe("test ValidatorContainer", () => {
 		describe("test ErrorModal props", () => {
 			it("set error prop", () => {
 				const props = {
-					fetchValidateUserEmail: jest.fn(),
+					fetchValidateUserToken: jest.fn(),
 					token: "token",
 					username: "",
 					error: "test error",
@@ -83,7 +83,7 @@ describe("test ValidatorContainer", () => {
 		describe("test SuccessModal props", () => {
 			it("set buttonClickRedirectsTo prop", () => {
 				const props = {
-					fetchValidateUserEmail: jest.fn(),
+					fetchValidateUserToken: jest.fn(),
 					token: "token",
 					username: "test username",
 					error: "",
@@ -97,7 +97,7 @@ describe("test ValidatorContainer", () => {
 			});
 			it("set successText prop", () => {
 				const props = {
-					fetchValidateUserEmail: jest.fn(),
+					fetchValidateUserToken: jest.fn(),
 					token: "token",
 					username: "test username",
 					error: "",
@@ -112,9 +112,9 @@ describe("test ValidatorContainer", () => {
 		});
 	});
 	describe("test callback contract", () => {
-		it("fetchValidateUserEmail calls when component did mount", () => {
+		it("fetchValidateUserToken calls when component did mount", () => {
 			const props = {
-				fetchValidateUserEmail: jest.fn(),
+				fetchValidateUserToken: jest.fn(),
 				token: "token",
 				username: "test username",
 				error: "",
@@ -122,7 +122,7 @@ describe("test ValidatorContainer", () => {
 			};
 			const component = shallow(<ValidatorContainer {...props} />);
 
-			expect(props.fetchValidateUserEmail).toHaveBeenCalledWith(props.token);
+			expect(props.fetchValidateUserToken).toHaveBeenCalledWith(props.token);
 		});
 	});
 });

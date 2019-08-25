@@ -1,14 +1,14 @@
-import { fetchValidateUserEmail, addValidatorUsername, setValidateError } from "../actions";
+import { fetchValidateUserToken, addValidatorUsername, setValidateError } from "../actions";
 import { VALIDATE_USER, ADD_VALIDATOR_USERNAME, ERROR_VALIDATE_FETCH } from "../constants";
 
 describe("test actions", () => {
-	it("test fetchValidateUserEmail", () => {
+	it("test fetchValidateUserToken", () => {
 		const action = {
 			type: VALIDATE_USER,
 			payload: "test 1",
 		};
 
-		expect(fetchValidateUserEmail("test 1")).toEqual(action);
+		expect(fetchValidateUserToken("test 1")).toEqual(action);
 	});
 	it("test addValidatorUsername", () => {
 		const action = {

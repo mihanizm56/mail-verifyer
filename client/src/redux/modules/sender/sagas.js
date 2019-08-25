@@ -8,8 +8,7 @@ import {
 } from "./actions";
 import { sendUserRequest } from "../../../services/api";
 import { ERROR_INTERNAL_SERVER } from "../../../constants";
-
-const sleep = ms => setTimeout(() => {}, ms);
+import { sleep } from "../../../utils/helpers";
 
 export function* sendUserEmailSaga(action) {
 	yield put(fetchLoadingSenderStart());
@@ -18,7 +17,7 @@ export function* sendUserEmailSaga(action) {
 
 	try {
 		const resultOfRequest = yield call(sendUserRequest, { body: action.payload });
-		const { message, error = ERROR_INTERNAL_SERVER } = resultOfRequest;
+		const { message, error } = resultOfRequest;
 
 		if (error) {
 			yield put(setSenderError(error));

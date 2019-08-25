@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withTranslation } from "react-i18next";
-import { getValidatorErrorState, getValidatorUsername, fetchValidateUserEmail } from "../../redux/modules/validator";
+import { getValidatorErrorState, getValidatorUsername, fetchValidateUserToken } from "../../redux/modules/validator";
 import { SuccessModal, ErrorModal, Loader } from "../../components";
 import { REDIRECTION_URL_FOR_LINK_BUTTON } from "../../constants";
 
 export class ValidatorContainer extends Component {
-	componentDidMount = () => this.props.fetchValidateUserEmail(this.props.token);
+	componentDidMount = () => this.props.fetchValidateUserToken(this.props.token);
 
 	render = () => {
 		const { username, error, t: translate } = this.props;
@@ -35,7 +35,7 @@ const mapStateToProps = store => ({
 
 const Wrapped = connect(
 	mapStateToProps,
-	{ fetchValidateUserEmail }
+	{ fetchValidateUserToken }
 )(ValidatorContainer);
 
 export const Validator = withTranslation()(Wrapped);
