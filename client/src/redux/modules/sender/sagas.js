@@ -7,7 +7,6 @@ import {
 	resetSenderError,
 } from "./actions";
 import { sendUserRequest } from "../../../services/api";
-import { ERROR_INTERNAL_SERVER } from "../../../constants";
 import { sleep } from "../../../utils/helpers";
 
 export function* sendUserEmailSaga(action) {

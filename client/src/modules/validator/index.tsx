@@ -1,18 +1,29 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import * as i18next from "i18next";
 import { withTranslation } from "react-i18next";
 import { getValidatorErrorState, getValidatorUsername, fetchValidateUserToken } from "../../redux/modules/validator";
 import { SuccessModal, ErrorModal, Loader } from "../../components";
 import { REDIRECTION_URL_FOR_LINK_BUTTON } from "../../constants";
+import { StoreType } from "../../redux/store";
 
-export class ValidatorContainer extends Component {
+interface IValidatorContainerProps {
+	token?: string;
+	username?: string;
+	t: i18next.TFunction;
+	error?: string;
+	fetchValidateUserToken: (value: any) => void;
+}
+
+export class ValidatorContainer extends Component<IValidatorContainerProps> {
 	componentDidMount = () => this.props.fetchValidateUserToken(this.props.token);
 
 	render = () => {
 		const { username, error, t: translate } = this.props;
 
 		if (Boolean(error)) {
-			return <ErrorModal errorText={error} />;
+			// return <ErrorModal errorText={error} />;
+			return <ErrorModal error={error} />;
 		}
 
 		if (Boolean(username)) {
@@ -28,7 +39,7 @@ export class ValidatorContainer extends Component {
 	};
 }
 
-const mapStateToProps = store => ({
+const mapStateToProps = (store: StoreType) => ({
 	error: getValidatorErrorState(store),
 	username: getValidatorUsername(store),
 });

@@ -6,6 +6,6 @@ import "./loader.css";
 
 export const Loader = memo(() => (
 	<div className="loader">
-		<SVGIcon path={loaderIcon} className="loader" />
+		<SVGIcon path={loaderIcon} />
 	</div>
 ));

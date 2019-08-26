@@ -1,11 +1,16 @@
 import React, { memo } from "react";
 import { useTranslation } from "react-i18next";
 import errorIcon from "../../../assets/icons/icon-error.svg";
-import { SVGIcon, OpenSansText, LinkButton } from "../../../components";
+import { SVGIcon, OpenSansText, LinkButton } from "../..";
 import { errorCreator } from "../../../utils/helpers/error-creator";
 import "./error-modal.css";
 
-export const ErrorModal = memo(({ error, handleButtonClick }) => {
+type ErrorModalProps = {
+	error?: string,
+	handleButtonClick?: () => void,
+};
+
+export const ErrorModal = memo(({ error, handleButtonClick }: ErrorModalProps) => {
 	const errorText = errorCreator(error);
 	const { t: translate } = useTranslation();
 
