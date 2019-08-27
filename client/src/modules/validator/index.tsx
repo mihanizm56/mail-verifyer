@@ -49,4 +49,4 @@ const Wrapped = connect(
 	{ fetchValidateUserToken }
 )(ValidatorContainer);
 
-export const Validator = withTranslation()(Wrapped);
+export const Validator: any = withTranslation()(Wrapped);
