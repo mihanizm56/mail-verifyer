@@ -22,7 +22,6 @@ export class ValidatorContainer extends Component<IValidatorContainerProps> {
 		const { username, error, t: translate } = this.props;
 
 		if (Boolean(error)) {
-			// return <ErrorModal errorText={error} />;
 			return <ErrorModal error={error} />;
 		}
 

@@ -5,7 +5,6 @@ exports[`test Loader test render contract render snap with all props 1`] = `
   className="loader"
 >
   <Component
-    className="loader"
     path="icon-loading.svg"
   />
 </div>

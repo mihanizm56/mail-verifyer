@@ -2,7 +2,6 @@
 
 exports[`test SVGIcon test render contract render snap with all props if is button 1`] = `
 <object
-  alt="icon"
   className="icon"
   data="test-path"
   type="image/svg+xml"

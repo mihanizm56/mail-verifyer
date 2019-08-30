@@ -75,7 +75,7 @@ describe("test ValidatorContainer", () => {
 				};
 				const component = shallow(<ValidatorContainer {...props} />);
 				const ErrorModal = component.find("ErrorModalMock");
-				const errorProp = ErrorModal.prop("errorText");
+				const errorProp = ErrorModal.prop("error");
 
 				expect(errorProp).toEqual(props.error);
 			});
