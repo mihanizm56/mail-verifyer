@@ -36,7 +36,6 @@
     "build": "react-scripts build",
     "test": "set CI=true && npm run test:all",
     "test:coverage": "react-scripts test --coverage",
-    "precommit": "lint-staged",
     "test:all": "react-scripts test",
     "test:part": "react-scripts test --u",
     "push": "cd .. && npm run push && cd client"
@@ -73,21 +72,9 @@
     "redux-mock-store": "1.5.3",
     "redux-saga-test-plan": "^4.0.0-beta.4"
   },
-  "lint-staged": {
-    "*.{js, jsx}": [
-      "node_modules/.bin/eslint --max-warnings=3000",
-      "prettier --write",
-      "git add"
-    ]
-  },
   "jest": {
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
