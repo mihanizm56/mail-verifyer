@@ -11,7 +11,7 @@ import { UserForm, SuccessModal } from "../../components";
 import { REDIRECTION_URL_FOR_LINK_BUTTON } from "../../constants";
 import { errorCreator } from "../../utils/helpers/error-creator";
 import { createSendSuccessMessage } from "../../utils/helpers/success-send-message-creator";
-import { StoreType } from "../../redux/store";
+// import { StoreType } from "../../redux/store";
 
 interface ISenderContainerProps {
 	username?: string;
@@ -43,7 +43,7 @@ export const SenderContainer = memo(
 	}
 );
 
-const mapStateToProps = (store: StoreType) => ({
+const mapStateToProps = (store: any) => ({
 	isLoading: getSenderLoadingState(store),
 	error: getSenderErrorState(store),
 	username: getSenderUsername(store),

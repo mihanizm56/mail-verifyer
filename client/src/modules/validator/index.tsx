@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { compose } from "ramda";
 import * as i18next from "i18next";
 import { withTranslation } from "react-i18next";
 import { getValidatorErrorState, getValidatorUsername, fetchValidateUserToken } from "../../redux/modules/validator";
 import { SuccessModal, ErrorModal, Loader } from "../../components";
 import { REDIRECTION_URL_FOR_LINK_BUTTON } from "../../constants";
-import { StoreType } from "../../redux/store";
+// import { StoreType } from "../../redux/store";
 
 interface IValidatorContainerProps {
 	token?: string;
@@ -15,7 +16,7 @@ interface IValidatorContainerProps {
 	fetchValidateUserToken: (value: any) => void;
 }
 
-export class ValidatorContainer extends Component<IValidatorContainerProps> {
+export class ValidatorContainer extends Component<any> {
 	componentDidMount = () => this.props.fetchValidateUserToken(this.props.token);
 
 	render = () => {
@@ -38,14 +39,22 @@ export class ValidatorContainer extends Component<IValidatorContainerProps> {
 	};
 }
 
-const mapStateToProps = (store: StoreType) => ({
+const mapStateToProps = (store: any) => ({
 	error: getValidatorErrorState(store),
 	username: getValidatorUsername(store),
 });
 
-const Wrapped = connect(
-	mapStateToProps,
-	{ fetchValidateUserToken }
-)(ValidatorContainer);
+// const Wrapped = connect(
+// 	mapStateToProps,
+// 	{ fetchValidateUserToken }
+// )(ValidatorContainer);
 
-export const Validator: any = withTranslation()(Wrapped);
+// export const Validator: any = withTranslation()(Wrapped);
+
+export const Validator = compose(
+	connect(
+		mapStateToProps,
+		{ fetchValidateUserToken }
+	),
+	withTranslation()
+)(ValidatorContainer);

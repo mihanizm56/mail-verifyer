@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import classNames from "classnames";
+import { compose } from "ramda";
 import { Field, Form, FieldArray, withFormik } from "formik";
 import { withTranslation } from "react-i18next";
 import * as i18next from "i18next";
@@ -84,16 +85,18 @@ export const WrappedForm: any = memo(
 
 const TranslatedForm = withTranslation()(WrappedForm);
 
-// TODO write a regular composition
-export const UserForm = withFormik({
-	handleSubmit: (values, { props }: { props: any }) => {
-		props.submitFunc(values);
-	},
-	mapPropsToValues: props => {
-		return {
-			email: "",
-			username: "",
-		};
-	},
-	validationSchema: UserSchema,
-})(TranslatedForm);
+export const UserForm = compose(
+	withFormik({
+		handleSubmit: (values, { props }: { props: any }) => {
+			props.submitFunc(values);
+		},
+		mapPropsToValues: props => {
+			return {
+				email: "",
+				username: "",
+			};
+		},
+		validationSchema: UserSchema,
+	}),
+	withTranslation()
+)(WrappedForm);
