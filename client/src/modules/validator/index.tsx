@@ -44,13 +44,6 @@ const mapStateToProps = (store: any) => ({
 	username: getValidatorUsername(store),
 });
 
-// const Wrapped = connect(
-// 	mapStateToProps,
-// 	{ fetchValidateUserToken }
-// )(ValidatorContainer);
-
-// export const Validator: any = withTranslation()(Wrapped);
-
 export const Validator = compose(
 	connect(
 		mapStateToProps,
