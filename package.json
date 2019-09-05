@@ -37,11 +37,5 @@
     "cz-customizable": {
       "config": "config/git/commitizen.js"
     }
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS -g config/git/commitlint.js",
-      "pre-commit": "cd client && npm t"
-    }
   }
 }
