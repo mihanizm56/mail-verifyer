@@ -85,7 +85,7 @@ export const WrappedForm: any = memo(
 
 const TranslatedForm = withTranslation()(WrappedForm);
 
-export const UserForm = 
+export const UserForm = compose(
 	withFormik({
 		handleSubmit: (values, { props }: { props: any }) => {
 			props.submitFunc(values);
